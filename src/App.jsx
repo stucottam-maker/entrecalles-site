@@ -62,10 +62,10 @@ function Nav() {
 
       <nav>
         <button onClick={() => navigate('/')}>Inicio</button>
-        <a href="#experiencias">Experiencias</a>
+        <a href="/#experiencias">Experiencias</a>
         <button onClick={() => navigate('/tours/privada')}>Privados</button>
-        <a href="#nosotros">Nosotros</a>
-        <a href="#contacto">Contacto</a>
+        <a href="/#nosotros">Nosotros</a>
+        <a href="/#contacto">Contacto</a>
         <button className="language-link" onClick={() => navigate('/en')}>
           EN
         </button>
@@ -81,16 +81,13 @@ function HomePage() {
         <Nav />
 
         <div className="hero-inner">
-          <div className="hero-title-card">
-            <p>Ciudad de México · Food Tours</p>
-            <h1>
-              Saborea la
-              <br />
-              CDMX entre
-              <br />
-              calles.
-            </h1>
-          </div>
+          <p className="hero-kicker">Ciudad de México · Food Tours</p>
+
+          <h1>
+            Saborea la CDMX
+            <br />
+            entre calles.
+          </h1>
 
           <p className="hero-subtitle">
             Mercados, taquerías, cantinas y rincones de barrio. Caminamos,
@@ -205,7 +202,7 @@ function TourPage({ tour }) {
         <Nav />
 
         <div className="tour-hero-inner">
-          <p className="kicker">{tour.tag}</p>
+          <p className="hero-kicker">{tour.tag}</p>
           <h1>{tour.title}</h1>
           <p>{tour.text}</p>
         </div>
@@ -254,7 +251,7 @@ function EnglishPage() {
         <Nav />
 
         <div className="tour-hero-inner">
-          <p className="kicker">Mexico City · Food Tours</p>
+          <p className="hero-kicker">Mexico City · Food Tours</p>
           <h1>Taste Mexico City between the streets.</h1>
           <p>
             Food walks through markets, taquerías, cantinas and hidden

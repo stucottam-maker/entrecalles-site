@@ -6,7 +6,7 @@
   --muted: #74665d;
   --line: rgba(16, 16, 16, 0.12);
   --white-line: rgba(255, 255, 255, 0.34);
-  --max: 1160px;
+  --max: 1080px;
 }
 
 * {
@@ -41,64 +41,65 @@ button {
 p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.65;
+  line-height: 1.55;
 }
 
 h1,
 h2,
 h3 {
   margin: 0;
-  letter-spacing: -0.065em;
-  line-height: 0.94;
+  letter-spacing: -0.055em;
+  line-height: 0.96;
 }
 
 h1 {
-  font-size: clamp(4rem, 9.2vw, 8rem);
+  font-size: clamp(3.1rem, 7.4vw, 6.2rem);
 }
 
 h2 {
-  font-size: clamp(2.8rem, 6.2vw, 5.4rem);
+  font-size: clamp(2.35rem, 5vw, 4.3rem);
 }
 
 h3 {
-  font-size: clamp(1.65rem, 2.8vw, 2.35rem);
+  font-size: clamp(1.4rem, 2.2vw, 1.95rem);
 }
 
 /* NAV */
 
 .site-nav {
   width: 100%;
-  padding: 22px 30px;
+  padding: 18px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .nav-logo {
-  width: 150px;
-  height: 42px;
+  width: 132px;
+  height: 36px;
   overflow: hidden;
   display: flex;
   align-items: center;
 }
 
 .nav-logo img {
-  width: 178px;
+  width: 158px;
   max-width: none;
-  transform: translateX(-14px);
+  transform: translateX(-13px);
+  mix-blend-mode: screen;
 }
 
 .site-nav nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   color: white;
-  font-size: 0.84rem;
+  font-size: 0.8rem;
   font-weight: 900;
 }
 
 .language-link {
-  padding: 8px 12px;
+  padding: 7px 11px;
   border: 1px solid var(--white-line);
   border-radius: 999px;
 }
@@ -106,7 +107,7 @@ h3 {
 /* HERO */
 
 .hero {
-  min-height: 92vh;
+  min-height: 72vh;
   background: var(--red);
   color: white;
   display: flex;
@@ -115,42 +116,34 @@ h3 {
 
 .hero-inner {
   flex: 1;
-  width: min(1080px, calc(100% - 48px));
+  width: min(880px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 28px 0 70px;
+  padding: 16px 0 48px;
   display: grid;
   align-content: center;
-  gap: 22px;
-}
-
-.hero-title-card {
-  padding: clamp(28px, 5vw, 52px);
-  border: 1px solid rgba(255, 255, 255, 0.24);
-  border-radius: 34px;
-  background: rgba(255, 255, 255, 0.045);
+  gap: 18px;
   text-align: center;
 }
 
-.hero-title-card p,
-.kicker {
-  margin-bottom: 16px;
+.hero-kicker {
+  margin: 0;
   color: white;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 950;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
 
-.hero-title-card h1 {
+.hero h1,
+.tour-hero h1 {
   color: white;
 }
 
 .hero-subtitle {
-  width: min(620px, 100%);
+  width: min(560px, 100%);
   margin: 0 auto;
   color: rgba(255, 255, 255, 0.84);
-  text-align: center;
-  font-size: 1.04rem;
+  font-size: 0.98rem;
 }
 
 .hero-actions,
@@ -158,18 +151,19 @@ h3 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
 }
 
 /* BUTTONS */
 
 .button {
-  min-height: 46px;
-  padding: 0 22px;
+  min-height: 42px;
+  padding: 0 20px;
   border-radius: 999px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.88rem;
   font-weight: 950;
 }
 
@@ -196,14 +190,14 @@ h3 {
 /* STRIP */
 
 .slogan-strip {
-  padding: 16px 24px;
+  padding: 12px 24px;
   background: var(--black);
 }
 
 .slogan-strip p {
   color: white;
   text-align: center;
-  font-size: clamp(0.78rem, 1.6vw, 1.2rem);
+  font-size: clamp(0.72rem, 1.4vw, 1rem);
   font-weight: 950;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -221,17 +215,21 @@ h3 {
 }
 
 .intro {
-  padding: 74px 0;
+  padding: 56px 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
+  gap: 44px;
   align-items: end;
 }
 
+.intro > p {
+  font-size: 1rem;
+}
+
 .eyebrow {
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   color: var(--red);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 950;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -242,26 +240,26 @@ h3 {
 }
 
 .section {
-  padding: 76px 0;
+  padding: 56px 0;
 }
 
 .section-heading {
-  max-width: 820px;
-  margin-bottom: 32px;
+  max-width: 720px;
+  margin-bottom: 26px;
 }
 
 .tour-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  gap: 12px;
 }
 
 .tour-card {
-  min-height: 300px;
-  padding: 24px;
+  min-height: 235px;
+  padding: 20px;
   background: white;
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -269,18 +267,19 @@ h3 {
 
 .tour-card span {
   color: var(--red);
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   font-weight: 950;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .tour-card p {
-  margin-top: 16px;
+  margin-top: 12px;
+  font-size: 0.94rem;
 }
 
 .tour-card button {
-  margin-top: 24px;
+  margin-top: 18px;
   color: var(--red);
   font-weight: 950;
   text-align: left;
@@ -289,7 +288,7 @@ h3 {
 /* RED PANEL */
 
 .red-panel {
-  padding: 76px 28px;
+  padding: 56px 28px;
   background: var(--red-hot);
   color: white;
 }
@@ -298,21 +297,21 @@ h3 {
   width: min(var(--max), 100%);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 56px;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 44px;
 }
 
 .steps-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+  gap: 10px;
 }
 
 .steps-grid article {
-  min-height: 150px;
-  padding: 22px;
+  min-height: 118px;
+  padding: 18px;
   border: 1px solid var(--white-line);
-  border-radius: 22px;
+  border-radius: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -321,30 +320,32 @@ h3 {
 .steps-grid strong {
   color: white;
   letter-spacing: 0.16em;
+  font-size: 0.8rem;
 }
 
 .steps-grid p {
   color: rgba(255, 255, 255, 0.84);
+  font-size: 0.96rem;
   font-weight: 750;
 }
 
 /* ABOUT */
 
 .about-section {
-  padding: 76px 0 96px;
-  max-width: 900px;
+  padding: 56px 0 72px;
+  max-width: 800px;
   text-align: center;
 }
 
 .about-section p:last-child {
-  max-width: 760px;
-  margin: 22px auto 0;
+  max-width: 660px;
+  margin: 18px auto 0;
 }
 
 /* TOUR PAGE */
 
 .tour-hero {
-  min-height: 68vh;
+  min-height: 52vh;
   background: var(--red);
   color: white;
   display: flex;
@@ -353,9 +354,9 @@ h3 {
 
 .tour-hero-inner {
   flex: 1;
-  width: min(920px, calc(100% - 48px));
+  width: min(760px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 58px 0;
+  padding: 38px 0 52px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -363,67 +364,68 @@ h3 {
 }
 
 .tour-hero-inner p:last-child {
-  max-width: 700px;
-  margin: 24px auto 0;
+  max-width: 620px;
+  margin: 18px auto 0;
   color: rgba(255, 255, 255, 0.84);
-  font-size: 1.08rem;
+  font-size: 1rem;
 }
 
 .tour-detail-section {
-  padding: 76px 0;
+  padding: 56px 0;
 }
 
 .tour-detail-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 12px;
 }
 
 .tour-detail-grid div {
-  padding: 26px;
+  padding: 22px;
   background: white;
   border: 1px solid var(--line);
-  border-radius: 24px;
+  border-radius: 20px;
 }
 
 .tour-cta {
-  margin-top: 24px;
-  padding: 48px;
+  margin-top: 20px;
+  padding: 38px;
   background: var(--black);
   color: white;
-  border-radius: 30px;
+  border-radius: 24px;
   text-align: center;
 }
 
 .tour-cta p {
-  max-width: 620px;
-  margin: 20px auto 26px;
+  max-width: 540px;
+  margin: 16px auto 22px;
   color: rgba(255, 255, 255, 0.78);
 }
 
 /* CONTACT */
 
 .contact-section {
-  padding: 76px 28px;
+  padding: 56px 28px;
   background: var(--red);
   color: white;
   text-align: center;
 }
 
 .contact-inner {
-  max-width: 820px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
 .contact-inner img {
-  width: min(100%, 400px);
+  width: min(100%, 320px);
   display: block;
-  margin: 0 auto 30px;
+  margin: 0 auto 22px;
+  mix-blend-mode: screen;
 }
 
 .contact-inner p {
-  max-width: 660px;
-  margin: 22px auto 0;
+  max-width: 580px;
+  margin: 18px auto 0;
   color: rgba(255, 255, 255, 0.84);
 }
 
@@ -432,7 +434,7 @@ h3 {
 footer {
   width: min(var(--max), calc(100% - 48px));
   margin: 0 auto;
-  padding: 28px 0;
+  padding: 24px 0;
   display: flex;
   justify-content: space-between;
   gap: 24px;
@@ -440,13 +442,15 @@ footer {
 }
 
 footer p {
-  margin-top: 6px;
+  margin-top: 4px;
+  font-size: 0.92rem;
 }
 
 .footer-links {
   display: flex;
-  gap: 20px;
+  gap: 18px;
   align-items: center;
+  font-size: 0.92rem;
   font-weight: 900;
 }
 
@@ -454,7 +458,7 @@ footer p {
 
 @media (max-width: 900px) {
   .site-nav {
-    padding: 18px 20px;
+    padding: 16px 20px;
   }
 
   .site-nav nav a,
@@ -463,32 +467,28 @@ footer p {
   }
 
   .nav-logo {
-    width: 128px;
+    width: 118px;
   }
 
   .nav-logo img {
-    width: 156px;
+    width: 146px;
   }
 
   .hero {
-    min-height: 88vh;
+    min-height: 70vh;
   }
 
   .hero-inner {
     width: calc(100% - 40px);
-    padding: 34px 0 62px;
-  }
-
-  .hero-title-card {
-    border-radius: 24px;
+    padding: 28px 0 44px;
   }
 
   h1 {
-    font-size: clamp(3.1rem, 14vw, 5.3rem);
+    font-size: clamp(2.75rem, 13vw, 4.6rem);
   }
 
   h2 {
-    font-size: clamp(2.5rem, 11vw, 4.5rem);
+    font-size: clamp(2.15rem, 10vw, 3.8rem);
   }
 
   .intro,
@@ -497,7 +497,7 @@ footer p {
   .private-section,
   .tour-detail-section {
     width: calc(100% - 40px);
-    padding: 62px 0;
+    padding: 48px 0;
   }
 
   .intro,
@@ -509,15 +509,15 @@ footer p {
   }
 
   .red-panel {
-    padding: 64px 20px;
+    padding: 48px 20px;
   }
 
   .tour-card {
-    min-height: 240px;
+    min-height: 200px;
   }
 
   .tour-cta {
-    padding: 36px 22px;
+    padding: 30px 22px;
   }
 
   footer {

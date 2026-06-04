@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 const bannerImage =
   'https://www.dropbox.com/scl/fi/is2u2sd8h2p6kmaheofu6/banner-2.png?rlkey=qs3j8858g2np7x4krkw1j2hnx&st=p5e33c0g&raw=1';
 
@@ -43,7 +44,7 @@ const tours = [
     intro:
       'Barras, botanas, mezcal, pulque y cantinas de barrio.',
     text:
-      'Una ruta para entender la CDMX desde otra mesa: bebidas tradicionales, botanas, cantinas y conversación. Más que beber, es entrar a una parte viva de la ciudad.',
+      'Una ruta para entender la CDMX desde otra mesa: bebidas tradicionales, botanas, cantinas y historias. Más que beber, es entrar a una parte viva de la ciudad.',
     duration: '3 horas',
     ideal: 'Parejas · Amigos · Viajeros adultos',
   },

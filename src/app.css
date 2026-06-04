@@ -75,18 +75,18 @@ h3 {
 }
 
 .nav-logo {
-  width: 132px;
-  height: 36px;
+  width: 210px;
+  height: 58px;
   overflow: hidden;
   display: flex;
   align-items: center;
 }
 
 .nav-logo img {
-  width: 158px;
+  width: 250px;
   max-width: none;
   display: block;
-  transform: translateX(-13px);
+  transform: translateX(-20px);
 }
 
 .site-nav nav {
@@ -134,7 +134,7 @@ h3 {
   flex: 1;
   width: min(860px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 14px 0 46px;
+  padding: 8px 0 46px;
   display: grid;
   align-content: center;
   gap: 18px;
@@ -176,7 +176,7 @@ h3 {
   flex: 1;
   width: min(780px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 34px 0 48px;
+  padding: 24px 0 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -481,11 +481,11 @@ h3 {
 .contact-inner {
   max-width: 720px;
   margin: 0 auto;
-  padding: 34px 28px 58px;
+  padding: 22px 28px 58px;
 }
 
 .contact-inner img {
-  width: min(100%, 320px);
+  width: min(100%, 440px);
   display: block;
   margin: 0 auto 22px;
 }
@@ -534,13 +534,13 @@ footer p {
   }
 
   .nav-logo {
-    width: 118px;
-    height: 34px;
+    width: 150px;
+    height: 44px;
   }
 
   .nav-logo img {
-    width: 146px;
-    transform: translateX(-12px);
+    width: 180px;
+    transform: translateX(-15px);
   }
 
   .hero {
@@ -549,7 +549,7 @@ footer p {
 
   .hero-inner {
     width: calc(100% - 40px);
-    padding: 28px 0 42px;
+    padding: 22px 0 42px;
     gap: 16px;
   }
 
@@ -561,7 +561,7 @@ footer p {
   .page-hero-inner,
   .tour-hero-inner {
     width: calc(100% - 40px);
-    padding: 32px 0 44px;
+    padding: 28px 0 44px;
   }
 
   h1 {
@@ -650,11 +650,11 @@ footer p {
   }
 
   .contact-inner {
-    padding: 32px 20px 46px;
+    padding: 22px 20px 46px;
   }
 
   .contact-inner img {
-    width: min(100%, 280px);
+    width: min(100%, 340px);
   }
 
   .contact-actions {

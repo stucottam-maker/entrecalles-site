@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 const bannerImage =
   'https://www.dropbox.com/scl/fi/is2u2sd8h2p6kmaheofu6/banner-2.png?rlkey=qs3j8858g2np7x4krkw1j2hnx&st=p5e33c0g&raw=1';
 
@@ -41,10 +42,9 @@ const tours = [
     title: 'Cantinas y Mezcal',
     tag: 'Botanas · Pulque · Mezcal',
     image: tourImages.mole,
-    intro:
-      'Barras, botanas, mezcal, pulque y cantinas de barrio.',
+    intro: 'Barras, botanas, mezcal, pulque y cantinas de barrio.',
     text:
-      'Una ruta para entender la CDMX desde otra mesa: bebidas tradicionales, botanas, cantinas y historias. Más que beber, es entrar a una parte viva de la ciudad.',
+      'Una ruta para entender la CDMX desde otra mesa: bebidas tradicionales, botanas, cantinas y conversación. Más que beber, es entrar a una parte viva de la ciudad.',
     duration: '3 horas',
     ideal: 'Parejas · Amigos · Viajeros adultos',
   },
@@ -53,8 +53,7 @@ const tours = [
     title: 'Experiencia Privada',
     tag: 'A medida · Grupos · Especiales',
     image: tourImages.antojitos,
-    intro:
-      'Una ruta personalizada según tus gustos, fechas y grupo.',
+    intro: 'Una ruta personalizada según tus gustos, fechas y grupo.',
     text:
       'Diseñamos experiencias privadas para viajeros, familias, chefs, marcas, prensa, equipos de trabajo y personas que quieren algo más personal.',
     duration: 'A medida',
@@ -62,9 +61,14 @@ const tours = [
   },
 ];
 
+function cleanPath(path) {
+  if (!path || path === '/') return '/';
+  return path.replace(/\/+$/, '');
+}
+
 function navigate(path) {
   window.history.pushState({}, '', path);
-  window.dispatchEvent(new PopStateEvent('popstate'));
+  window.dispatchEvent(new Event('locationchange'));
 }
 
 function Nav() {
@@ -109,10 +113,16 @@ function HomePage() {
           </p>
 
           <div className="hero-actions">
-            <button className="button dark" onClick={() => navigate('/experiencias')}>
+            <button
+              className="button dark"
+              onClick={() => navigate('/experiencias')}
+            >
               Ver experiencias
             </button>
-            <button className="button light" onClick={() => navigate('/contacto')}>
+            <button
+              className="button light"
+              onClick={() => navigate('/contacto')}
+            >
               Reservar
             </button>
           </div>
@@ -154,7 +164,10 @@ function ImageStrip() {
   return (
     <section className="image-strip">
       <article className="image-card image-card-large">
-        <img src={tourImages.mercado} alt="Mercado gastronómico en Ciudad de México" />
+        <img
+          src={tourImages.mercado}
+          alt="Mercado gastronómico en Ciudad de México"
+        />
         <span>Mercados</span>
       </article>
 
@@ -176,6 +189,7 @@ function ExperiencesPage() {
     <main>
       <section className="page-hero">
         <Nav />
+
         <div className="page-hero-inner">
           <p className="hero-kicker">Experiencias</p>
           <h1>Rutas sencillas, reales y llenas de sabor.</h1>
@@ -215,32 +229,34 @@ function ExperiencesPage() {
 }
 
 function PrivatePage() {
-  const tour = tours.find((item) => item.slug === 'privada');
+  const privateTour = tours.find((item) => item.slug === 'privada');
 
   return (
     <main>
       <section className="page-hero">
         <Nav />
+
         <div className="page-hero-inner">
           <p className="hero-kicker">Tours privados</p>
           <h1>Una ruta hecha para ti.</h1>
           <p>
-            Diseñamos experiencias privadas para parejas, familias, chefs, marcas,
-            prensa, equipos de trabajo y viajeros que quieren algo más personal.
+            Diseñamos experiencias privadas para parejas, familias, chefs,
+            marcas, prensa, equipos de trabajo y viajeros que quieren algo más
+            personal.
           </p>
         </div>
       </section>
 
       <section className="tour-detail-section">
         <div className="tour-page-image">
-          <img src={tour.image} alt={tour.title} />
+          <img src={privateTour.image} alt={privateTour.title} />
         </div>
 
         <div className="tour-cta">
           <h2>Cuéntanos qué quieres probar.</h2>
           <p>
-            Tacos, mercados, cocina regional, mezcal, vegetarianos, investigación
-            gastronómica o una ruta para grupos especiales.
+            Tacos, mercados, cocina regional, mezcal, vegetarianos,
+            investigación gastronómica o una ruta para grupos especiales.
           </p>
           <button className="button red" onClick={() => navigate('/contacto')}>
             Pedir ruta privada
@@ -258,6 +274,7 @@ function AboutPage() {
     <main>
       <section className="page-hero">
         <Nav />
+
         <div className="page-hero-inner">
           <p className="hero-kicker">Nosotros</p>
           <h1>Nacimos entre calles.</h1>
@@ -273,8 +290,8 @@ function AboutPage() {
         <h2>La comida como forma de entrar a la ciudad.</h2>
         <p>
           Creemos que la ciudad no se conoce solo mirando monumentos. Se conoce
-          mordiendo un taco, oliendo el comal, entrando a un mercado, probando una
-          salsa y escuchando a la gente que cocina todos los días.
+          mordiendo un taco, oliendo el comal, entrando a un mercado, probando
+          una salsa y escuchando a la gente que cocina todos los días.
         </p>
       </section>
 
@@ -331,8 +348,8 @@ function TourPage({ tour }) {
         <div className="tour-cta">
           <h2>¿Te late esta ruta?</h2>
           <p>
-            Escríbenos con tus fechas, número de personas, idioma y restricciones
-            alimentarias.
+            Escríbenos con tus fechas, número de personas, idioma y
+            restricciones alimentarias.
           </p>
           <button className="button red" onClick={() => navigate('/contacto')}>
             Reservar esta experiencia
@@ -350,6 +367,7 @@ function EnglishPage() {
     <main>
       <section className="page-hero">
         <Nav />
+
         <div className="page-hero-inner">
           <p className="hero-kicker">Mexico City · Food Tours</p>
           <h1>Taste Mexico City between the streets.</h1>
@@ -367,11 +385,17 @@ function EnglishPage() {
               <div className="tour-card-image">
                 <img src={tour.image} alt={tour.title} />
               </div>
+
               <span>{tour.tag}</span>
+
               <div>
                 <h3>{tour.title}</h3>
                 <p>{tour.intro}</p>
               </div>
+
+              <button onClick={() => navigate(`/tours/${tour.slug}`)}>
+                View tour →
+              </button>
             </article>
           ))}
         </div>
@@ -393,15 +417,18 @@ function Contact() {
         <p className="eyebrow light">Reservas</p>
         <h2>¿Listo para probar la CDMX?</h2>
         <p>
-          Escríbenos con tus fechas, número de personas, idioma, tipo de experiencia
-          y restricciones alimentarias.
+          Escríbenos con tus fechas, número de personas, idioma, tipo de
+          experiencia y restricciones alimentarias.
         </p>
 
         <div className="contact-actions">
           <a className="button light" href="https://wa.me/5210000000000">
             WhatsApp
           </a>
-          <a className="button outline" href="https://instagram.com/entrecallesmexico">
+          <a
+            className="button outline"
+            href="https://instagram.com/entrecallesmexico"
+          >
             Instagram
           </a>
           <a className="button outline" href="mailto:hola@entrecalles.mx">
@@ -430,8 +457,27 @@ function Footer() {
 }
 
 function App() {
-  const path = window.location.pathname;
-  const tourSlug = path.replace('/tours/', '');
+  const [path, setPath] = useState(cleanPath(window.location.pathname));
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setPath(cleanPath(window.location.pathname));
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('locationchange', handleLocationChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('locationchange', handleLocationChange);
+    };
+  }, []);
+
+  const tourSlug = path.startsWith('/tours/')
+    ? path.replace('/tours/', '')
+    : '';
+
   const tour = tours.find((item) => item.slug === tourSlug);
 
   if (path === '/en') return <EnglishPage />;

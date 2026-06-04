@@ -1,11 +1,21 @@
 const bannerImage =
   'https://www.dropbox.com/scl/fi/is2u2sd8h2p6kmaheofu6/banner-2.png?rlkey=qs3j8858g2np7x4krkw1j2hnx&st=p5e33c0g&raw=1';
 
+const tourImages = {
+  mole:
+    'https://www.dropbox.com/scl/fi/bs3ropk51dw2vflo5ybwo/mole-cazuela-square-placeholder.jpg?rlkey=asxqqioyajpm3chn66di1wm98&st=0v2mwfjf&raw=1',
+  antojitos:
+    'https://www.dropbox.com/scl/fi/ptbc81ipxn28czjz9r0wx/mesa-antojitos-square-placeholder.jpg?rlkey=qvlrehpga9nf9uhkphsi470q6&st=006yjhqh&raw=1',
+  mercado:
+    'https://www.dropbox.com/scl/fi/vt4oexbd60vsyugelcq2p/mercado-chiles-square-placeholder.jpg?rlkey=7x835zxj9rxtw80hd0srz0mvv&st=syk61n3e&raw=1',
+};
+
 const tours = [
   {
     slug: 'tacos',
     title: 'Ruta de Tacos',
     tag: 'Trompo · Comal · Salsa',
+    image: tourImages.antojitos,
     intro:
       'Pastor, suadero, campechano, carnitas y salsas que cuentan la ciudad desde la banqueta.',
     text:
@@ -17,6 +27,7 @@ const tours = [
     slug: 'mercado',
     title: 'Mercado y Desayuno',
     tag: 'Mañana · Mercado · Antojitos',
+    image: tourImages.mercado,
     intro:
       'Tamales, jugos, quesadillas, fruta, guisados y pasillos llenos de vida.',
     text:
@@ -28,6 +39,7 @@ const tours = [
     slug: 'cantinas',
     title: 'Cantinas y Mezcal',
     tag: 'Botanas · Pulque · Mezcal',
+    image: tourImages.mole,
     intro:
       'Barras, botanas, mezcal, pulque y cantinas de barrio.',
     text:
@@ -39,6 +51,7 @@ const tours = [
     slug: 'privada',
     title: 'Experiencia Privada',
     tag: 'A medida · Grupos · Especiales',
+    image: tourImages.antojitos,
     intro:
       'Una ruta personalizada según tus gustos, fechas y grupo.',
     text:
@@ -122,6 +135,26 @@ function HomePage() {
         </p>
       </section>
 
+      <section className="image-strip">
+        <article className="image-card image-card-large">
+          <img
+            src={tourImages.mercado}
+            alt="Mercado gastronómico en Ciudad de México"
+          />
+          <span>Mercados</span>
+        </article>
+
+        <article className="image-card">
+          <img src={tourImages.mole} alt="Cocina tradicional mexicana" />
+          <span>Cocina viva</span>
+        </article>
+
+        <article className="image-card">
+          <img src={tourImages.antojitos} alt="Antojitos mexicanos" />
+          <span>Antojitos</span>
+        </article>
+      </section>
+
       <section id="experiencias" className="section">
         <div className="section-heading">
           <p className="eyebrow">Experiencias</p>
@@ -131,6 +164,10 @@ function HomePage() {
         <div className="tour-grid">
           {tours.map((tour) => (
             <article className="tour-card" key={tour.slug}>
+              <div className="tour-card-image">
+                <img src={tour.image} alt={tour.title} />
+              </div>
+
               <span>{tour.tag}</span>
 
               <div>
@@ -209,6 +246,10 @@ function TourPage({ tour }) {
       </section>
 
       <section className="tour-detail-section">
+        <div className="tour-page-image">
+          <img src={tour.image} alt={tour.title} />
+        </div>
+
         <div className="tour-detail-grid">
           <div>
             <p className="eyebrow">Duración</p>
@@ -269,6 +310,10 @@ function EnglishPage() {
         <div className="tour-grid">
           {tours.map((tour) => (
             <article className="tour-card" key={tour.slug}>
+              <div className="tour-card-image">
+                <img src={tour.image} alt={tour.title} />
+              </div>
+
               <span>{tour.tag}</span>
               <div>
                 <h3>{tour.title}</h3>

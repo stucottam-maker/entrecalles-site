@@ -1,94 +1,103 @@
 const bannerImage =
   'https://www.dropbox.com/scl/fi/is2u2sd8h2p6kmaheofu6/banner-2.png?rlkey=qs3j8858g2np7x4krkw1j2hnx&st=p5e33c0g&raw=1';
 
-const experiences = [
+const tours = [
   {
+    slug: 'tacos',
     title: 'Ruta de Tacos',
     tag: 'Trompo · Comal · Salsa',
-    text: 'Pastor, suadero, campechano, carnitas y salsas que cuentan la ciudad desde la banqueta.',
+    intro:
+      'Una caminata por taquerías, puestos y sabores esenciales de la ciudad.',
+    text:
+      'Pastor, suadero, campechano, carnitas y salsas que cuentan la CDMX desde la banqueta. Una ruta para comer de pie, con tortilla en mano y entender por qué el taco es una forma de vida.',
+    duration: '3 horas',
+    ideal: 'Primera vez en CDMX · Food lovers · Grupos pequeños',
   },
   {
+    slug: 'mercado',
     title: 'Mercado y Desayuno',
-    tag: 'Mercado · Mañana · Antojitos',
-    text: 'Tamales, jugos, quesadillas, fruta, guisados y pasillos llenos de color, ruido y tradición.',
+    tag: 'Mañana · Mercado · Antojitos',
+    intro:
+      'Una mañana entre pasillos, jugos, tamales, quesadillas y guisados.',
+    text:
+      'La ciudad despierta en sus mercados. Probamos sabores de mañana, antojitos, fruta, jugos, tortillas, salsas y todo lo que aparece cuando uno camina sin prisa.',
+    duration: '3 horas',
+    ideal: 'Viajeros curiosos · Familias · Fotografía · Cultura local',
   },
   {
+    slug: 'cantinas',
     title: 'Cantinas y Mezcal',
     tag: 'Botanas · Pulque · Mezcal',
-    text: 'Barras, botanas, mezcal, pulque y cantinas de barrio para entender la CDMX desde otra mesa.',
+    intro:
+      'Barras, botanas, mezcal, pulque y cantinas de barrio.',
+    text:
+      'Una ruta para entender la CDMX desde otra mesa: cantinas, bebidas tradicionales, botanas y conversación. Más que beber, es entrar a una parte viva de la cultura de la ciudad.',
+    duration: '3 horas',
+    ideal: 'Parejas · Amigos · Grupos privados · Viajeros adultos',
   },
   {
+    slug: 'privada',
     title: 'Experiencia Privada',
     tag: 'A medida · Grupos · Especiales',
-    text: 'Rutas personalizadas para viajeros, familias, chefs, marcas, prensa o grupos privados.',
+    intro:
+      'Una ruta personalizada según tus gustos, fechas y grupo.',
+    text:
+      'Diseñamos experiencias privadas para viajeros, familias, chefs, marcas, prensa, equipos de trabajo y personas que quieren algo más personal.',
+    duration: 'A medida',
+    ideal: 'Chefs · Marcas · Familias · Empresas · Viajeros exigentes',
   },
 ];
 
-const steps = [
-  {
-    number: '01',
-    title: 'Elige',
-    text: 'Selecciona la experiencia, fecha y número de personas.',
-  },
-  {
-    number: '02',
-    title: 'Reserva',
-    text: 'Escríbenos por WhatsApp, Instagram o email.',
-  },
-  {
-    number: '03',
-    title: 'Encuentro',
-    text: 'Nos vemos en un punto fácil de la ciudad.',
-  },
-  {
-    number: '04',
-    title: 'Come',
-    text: 'Caminamos, probamos y contamos la historia detrás de cada parada.',
-  },
-];
+function navigate(path) {
+  window.history.pushState({}, '', path);
+  window.dispatchEvent(new PopStateEvent('popstate'));
+}
 
-function App() {
+function Nav() {
+  return (
+    <header className="site-nav">
+      <button className="nav-logo" onClick={() => navigate('/')}>
+        <img src={bannerImage} alt="Entre Calles" />
+      </button>
+
+      <nav>
+        <button onClick={() => navigate('/')}>Inicio</button>
+        <a href="#experiencias">Experiencias</a>
+        <button onClick={() => navigate('/tours/privada')}>Privados</button>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <button className="language-link" onClick={() => navigate('/en')}>
+          EN
+        </button>
+      </nav>
+    </header>
+  );
+}
+
+function HomePage() {
   return (
     <main>
       <section id="inicio" className="hero">
-        <header className="site-nav">
-          <a href="#inicio" className="nav-logo">
-            <img src={bannerImage} alt="Entre Calles" />
-          </a>
-
-          <nav>
-            <a href="#experiencias">Experiencias</a>
-            <a href="#privados">Privados</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#contacto">Contacto</a>
-            <a className="language-link" href="/en">EN</a>
-          </nav>
-        </header>
+        <Nav />
 
         <div className="hero-inner">
-          <img
-            className="hero-brand"
-            src={bannerImage}
-            alt="Entre Calles - Llevamos tu paladar al límite"
-          />
+          <div className="hero-logo-wrap">
+            <img src={bannerImage} alt="Entre Calles" />
+          </div>
 
-          <div className="hero-copy">
-            <p className="kicker">Ciudad de México · Food Tours</p>
+          <div className="hero-title-card">
+            <p>Ciudad de México · Food Tours</p>
             <h1>Saborea la CDMX entre calles.</h1>
-            <p>
-              Recorridos gastronómicos por mercados, taquerías, cantinas y rincones
-              de barrio. Caminamos, comemos y contamos la ciudad desde sus sabores
-              más reales.
-            </p>
+          </div>
 
-            <div className="hero-actions">
-              <a href="#experiencias" className="button dark">
-                Ver experiencias
-              </a>
-              <a href="#contacto" className="button light">
-                Reservar
-              </a>
-            </div>
+          <p className="hero-subtitle">
+            Mercados, taquerías, cantinas y rincones de barrio para probar la ciudad
+            como se vive de verdad: caminando, comiendo y escuchando sus historias.
+          </p>
+
+          <div className="hero-actions">
+            <a href="#experiencias" className="button dark">Ver experiencias</a>
+            <a href="#contacto" className="button light">Reservar</a>
           </div>
         </div>
       </section>
@@ -104,8 +113,8 @@ function App() {
         </div>
 
         <p>
-          Entre Calles crea recorridos gastronómicos para quienes quieren conocer
-          la Ciudad de México más allá de lo obvio. No solo restaurantes: mercados,
+          Entre Calles crea recorridos gastronómicos para quienes quieren conocer la
+          Ciudad de México más allá de lo obvio. No solo restaurantes: mercados,
           puestos, comales, barras, esquinas, salsas y conversaciones.
         </p>
       </section>
@@ -116,14 +125,17 @@ function App() {
           <h2>Rutas sencillas, reales y llenas de sabor.</h2>
         </div>
 
-        <div className="experience-grid">
-          {experiences.map((experience) => (
-            <article className="experience-card" key={experience.title}>
-              <span>{experience.tag}</span>
+        <div className="tour-grid">
+          {tours.map((tour) => (
+            <article className="tour-card" key={tour.slug}>
+              <span>{tour.tag}</span>
               <div>
-                <h3>{experience.title}</h3>
-                <p>{experience.text}</p>
+                <h3>{tour.title}</h3>
+                <p>{tour.intro}</p>
               </div>
+              <button onClick={() => navigate(`/tours/${tour.slug}`)}>
+                Ver ruta →
+              </button>
             </article>
           ))}
         </div>
@@ -137,30 +149,11 @@ function App() {
           </div>
 
           <div className="steps-grid">
-            {steps.map((step) => (
-              <article className="step-card" key={step.number}>
-                <strong>{step.number}</strong>
-                <div>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                </div>
-              </article>
-            ))}
+            <article><strong>01</strong><p>Elige tu experiencia y fecha.</p></article>
+            <article><strong>02</strong><p>Reserva por WhatsApp o mensaje.</p></article>
+            <article><strong>03</strong><p>Nos encontramos en un punto fácil.</p></article>
+            <article><strong>04</strong><p>Probamos lugares reales con historia.</p></article>
           </div>
-        </div>
-      </section>
-
-      <section id="privados" className="private-section">
-        <div className="private-card">
-          <p className="eyebrow">Tours privados</p>
-          <h2>Una ruta hecha para ti.</h2>
-          <p>
-            Diseñamos experiencias privadas para parejas, familias, chefs, marcas,
-            prensa, equipos de trabajo y viajeros que quieren algo más personal.
-          </p>
-          <a href="#contacto" className="button red">
-            Pedir ruta privada
-          </a>
         </div>
       </section>
 
@@ -176,44 +169,144 @@ function App() {
         </p>
       </section>
 
-      <section id="contacto" className="contact-section">
-        <div className="contact-inner">
-          <img src={bannerImage} alt="Entre Calles" />
+      <Contact />
+      <Footer />
+    </main>
+  );
+}
 
-          <p className="eyebrow light">Reservas</p>
-          <h2>¿Listo para probar la CDMX?</h2>
-          <p>
-            Escríbenos con tus fechas, número de personas, idioma, tipo de experiencia
-            y restricciones alimentarias.
-          </p>
+function TourPage({ tour }) {
+  return (
+    <main>
+      <section className="tour-hero">
+        <Nav />
 
-          <div className="contact-actions">
-            <a className="button light" href="https://wa.me/5210000000000">
-              WhatsApp
-            </a>
-            <a className="button outline" href="https://instagram.com/entrecallesmexico">
-              Instagram
-            </a>
-            <a className="button outline" href="mailto:hola@entrecalles.mx">
-              Email
-            </a>
-          </div>
+        <div className="tour-hero-inner">
+          <p className="kicker">{tour.tag}</p>
+          <h1>{tour.title}</h1>
+          <p>{tour.text}</p>
         </div>
       </section>
 
-      <footer>
-        <div>
-          <strong>Entre Calles</strong>
-          <p>Recorridos gastronómicos en Ciudad de México.</p>
+      <section className="tour-detail-section">
+        <div className="tour-detail-grid">
+          <div>
+            <p className="eyebrow">Duración</p>
+            <h3>{tour.duration}</h3>
+          </div>
+          <div>
+            <p className="eyebrow">Ideal para</p>
+            <h3>{tour.ideal}</h3>
+          </div>
+          <div>
+            <p className="eyebrow">Incluye</p>
+            <h3>Degustaciones, bebidas seleccionadas y anfitrión local.</h3>
+          </div>
         </div>
 
-        <div className="footer-links">
-          <a href="https://instagram.com/entrecallesmexico">@entrecallesmexico</a>
-          <a href="/en">English version</a>
+        <div className="tour-cta">
+          <h2>¿Te late esta ruta?</h2>
+          <p>
+            Escríbenos con tus fechas, número de personas, idioma y restricciones
+            alimentarias.
+          </p>
+          <a className="button red" href="#contacto">Reservar esta experiencia</a>
         </div>
-      </footer>
+      </section>
+
+      <Contact />
+      <Footer />
     </main>
   );
+}
+
+function EnglishPage() {
+  return (
+    <main>
+      <section className="tour-hero">
+        <Nav />
+        <div className="tour-hero-inner">
+          <p className="kicker">Mexico City · Food Tours</p>
+          <h1>Taste Mexico City between the streets.</h1>
+          <p>
+            Food walks through markets, taquerías, cantinas and hidden neighbourhood
+            corners. Simple, local and full of flavour.
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="section-heading">
+          <p className="eyebrow">Experiences</p>
+          <h2>Markets, tacos, cantinas and private routes.</h2>
+        </div>
+
+        <div className="tour-grid">
+          {tours.map((tour) => (
+            <article className="tour-card" key={tour.slug}>
+              <span>{tour.tag}</span>
+              <div>
+                <h3>{tour.title}</h3>
+                <p>{tour.intro}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <Contact />
+      <Footer />
+    </main>
+  );
+}
+
+function Contact() {
+  return (
+    <section id="contacto" className="contact-section">
+      <div className="contact-inner">
+        <img src={bannerImage} alt="Entre Calles" />
+        <p className="eyebrow light">Reservas</p>
+        <h2>¿Listo para probar la CDMX?</h2>
+        <p>
+          Escríbenos con tus fechas, número de personas, idioma, tipo de experiencia
+          y restricciones alimentarias.
+        </p>
+
+        <div className="contact-actions">
+          <a className="button light" href="https://wa.me/5210000000000">WhatsApp</a>
+          <a className="button outline" href="https://instagram.com/entrecallesmexico">Instagram</a>
+          <a className="button outline" href="mailto:hola@entrecalles.mx">Email</a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer>
+      <div>
+        <strong>Entre Calles</strong>
+        <p>Recorridos gastronómicos en Ciudad de México.</p>
+      </div>
+
+      <div className="footer-links">
+        <a href="https://instagram.com/entrecallesmexico">@entrecallesmexico</a>
+        <button onClick={() => navigate('/en')}>English version</button>
+      </div>
+    </footer>
+  );
+}
+
+function App() {
+  const path = window.location.pathname;
+  const tourSlug = path.replace('/tours/', '');
+  const tour = tours.find((item) => item.slug === tourSlug);
+
+  if (path === '/en') return <EnglishPage />;
+  if (tour) return <TourPage tour={tour} />;
+
+  return <HomePage />;
 }
 
 export default App;

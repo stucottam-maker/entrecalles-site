@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const bannerImage =
-  'https://www.dropbox.com/scl/fi/is2u2sd8h2p6kmaheofu6/banner-2.png?rlkey=qs3j8858g2np7x4krkw1j2hnx&st=p5e33c0g&raw=1';
+  'https://www.dropbox.com/scl/fi/lzqf6sdwjdbkiqxrxr4uj/entre-calles-banner.png?rlkey=fqd61nsibcgtmtrj788uvma6r&st=l9zz88gn&raw=1';
 
 const tourImages = {
   mole:
@@ -163,7 +163,7 @@ function HomePage() {
 function ImageStrip() {
   return (
     <section className="image-strip">
-      <article className="image-card image-card-large">
+      <article className="image-card">
         <img
           src={tourImages.mercado}
           alt="Mercado gastronómico en Ciudad de México"

@@ -320,10 +320,13 @@ h3 {
   background: var(--black);
 }
 
-.image-card {
-  position: relative;
-  aspect-ratio: 1 / 1;
-  border-radius: 20px;
+.image-card,
+.tour-card-image {
+  aspect-ratio: 4 / 3;
+}
+
+.tour-page-image {
+  aspect-ratio: 4 / 3;
 }
 
 .image-card img,
@@ -379,7 +382,7 @@ h3 {
 }
 
 .tour-card-image {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 3;
   width: 100%;
   border-radius: 14px;
   margin-bottom: 14px;
@@ -613,7 +616,7 @@ footer p {
   .image-card,
   .tour-card-image,
   .tour-page-image {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 4 / 3;
   }
 
   .tour-grid {

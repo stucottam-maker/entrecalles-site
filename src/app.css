@@ -320,13 +320,10 @@ h3 {
   background: var(--black);
 }
 
-.image-card,
-.tour-card-image {
-  aspect-ratio: 4 / 3;
-}
-
-.tour-page-image {
-  aspect-ratio: 4 / 3;
+.image-card {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  border-radius: 20px;
 }
 
 .image-card img,
@@ -371,7 +368,7 @@ h3 {
 }
 
 .tour-card {
-  min-height: 360px;
+  min-height: 320px;
   padding: 12px;
   background: white;
   border: 1px solid var(--line);
@@ -382,7 +379,7 @@ h3 {
 }
 
 .tour-card-image {
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 5 / 3;
   width: 100%;
   border-radius: 14px;
   margin-bottom: 14px;
@@ -614,7 +611,10 @@ footer p {
   }
 
   .image-card,
-  .tour-card-image,
+  .tour-card-image {
+    aspect-ratio: 5 / 3;
+  }
+
   .tour-page-image {
     aspect-ratio: 4 / 3;
   }

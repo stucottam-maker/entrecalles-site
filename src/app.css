@@ -68,15 +68,15 @@ h3 {
 
 .site-nav {
   width: 100%;
-  padding: 18px 28px;
+  padding: 14px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .nav-logo {
-  width: 240px;
-  height: 70px;
+  width: 290px;
+  height: 96px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -86,7 +86,7 @@ h3 {
   width: 520px;
   max-width: none;
   display: block;
-  transform: translateX(-140px);
+  transform: translateX(-110px);
 }
 
 .site-nav nav {
@@ -134,7 +134,7 @@ h3 {
   flex: 1;
   width: min(860px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 4px 0 46px;
+  padding: 0 0 46px;
   display: grid;
   align-content: center;
   gap: 18px;
@@ -176,7 +176,7 @@ h3 {
   flex: 1;
   width: min(780px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 20px 0 48px;
+  padding: 18px 0 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -525,7 +525,7 @@ footer p {
 
 @media (max-width: 900px) {
   .site-nav {
-    padding: 14px 20px;
+    padding: 12px 20px;
   }
 
   .site-nav nav a,
@@ -534,13 +534,13 @@ footer p {
   }
 
   .nav-logo {
-    width: 170px;
-    height: 52px;
+    width: 210px;
+    height: 76px;
   }
 
   .nav-logo img {
-    width: 370px;
-    transform: translateX(-100px);
+    width: 390px;
+    transform: translateX(-82px);
   }
 
   .hero {
@@ -549,7 +549,7 @@ footer p {
 
   .hero-inner {
     width: calc(100% - 40px);
-    padding: 20px 0 42px;
+    padding: 16px 0 42px;
     gap: 16px;
   }
 
@@ -561,7 +561,7 @@ footer p {
   .page-hero-inner,
   .tour-hero-inner {
     width: calc(100% - 40px);
-    padding: 24px 0 44px;
+    padding: 22px 0 44px;
   }
 
   h1 {

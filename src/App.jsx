@@ -8,13 +8,13 @@ const heroImages = {
     'https://www.dropbox.com/scl/fi/7ygw4ntpo4c3sp9qjz8kv/a_wide_cinematic_street_scene_at_golden_hour_suns.jpg?rlkey=uidut7ey4rj6arjzmin4ucr7s&st=b48xteph&raw=1',
 
   experiencias:
-    'https://www.dropbox.com/scl/fi/a589wjp97x3ju12xlvfhb/entrecalles_experiencias_hero.jpg?rlkey=hjv0j5y2eufm4499f011p9azi&st=rlz00ab8&raw=1',
+    'https://www.dropbox.com/scl/fi/13owwjl8u3rpie9ow013d/entrecalles_experiencias_clean_hero.jpg?rlkey=m2awg3uulcdr0t2snpmgy18dd&st=8wz7f6dq&raw=1',
 
   nosotros:
-    'https://www.dropbox.com/scl/fi/s9qxqvgmnui63eijh2iu7/entrecalles_nosotros_hero.jpg?rlkey=24dsbd9jd3i263k3y2xynikwk&st=sdvdqdnl&raw=1',
+    'https://www.dropbox.com/scl/fi/ml3y7dleva2f58utv0j5a/entrecalles_nosotros_clean_hero.jpg?rlkey=7608s68u4ssdrdah19zf5gyu4&st=rpqfeu7y&raw=1',
 
   contacto:
-    'https://www.dropbox.com/scl/fi/1aekgnwp8wczyzguorsbi/entrecalles_contacto_hero.jpg?rlkey=uckto03ot193n7hkbcid65qzp&st=x8bquwha&raw=1',
+    'https://www.dropbox.com/scl/fi/nhxb68f1khjwwu7t57e5u/entrecalles_contacto_clean_hero.jpg?rlkey=j1hcfx06ih0js0fdq3x9o30ih&st=l5h771o2&raw=1',
 };
 
 const tourImages = {
@@ -115,6 +115,20 @@ function Nav() {
   );
 }
 
+function PhotoNav() {
+  return (
+    <div className="photo-nav" aria-label="Site navigation">
+      <button aria-label="Inicio" onClick={() => navigate('/')} />
+      <button aria-label="Experiencias" onClick={() => navigate('/experiencias')} />
+      <button aria-label="Sobre ruedas" onClick={() => navigate('/sobre-ruedas')} />
+      <button aria-label="Privados" onClick={() => navigate('/privados')} />
+      <button aria-label="Nosotros" onClick={() => navigate('/nosotros')} />
+      <button aria-label="Contacto" onClick={() => navigate('/contacto')} />
+      <button aria-label="English" onClick={() => navigate('/en')} />
+    </div>
+  );
+}
+
 function ImageHero({
   image,
   alt,
@@ -124,10 +138,11 @@ function ImageHero({
   children,
   centered = false,
   className = '',
+  usePhotoNav = false,
 }) {
   return (
     <section className={`image-hero ${className}`}>
-      <Nav />
+      {usePhotoNav ? <PhotoNav /> : <Nav />}
 
       <div className="image-hero-bg">
         <img src={image} alt={alt} />
@@ -272,6 +287,7 @@ function ExperiencesPage() {
         }
         copy="Tacos, mercados, cantinas y mezcal. Elige una ruta o pide una experiencia hecha a tu medida."
         className="experiences-image-hero"
+        usePhotoNav
       />
 
       <section className="section">
@@ -432,6 +448,7 @@ function AboutPage() {
         }
         copy="Entre Calles nace del amor por la Ciudad de México y por su forma más honesta de contar historias: la comida."
         className="about-image-hero"
+        usePhotoNav
       />
 
       <section className="about-section">
@@ -503,7 +520,7 @@ function ContactPage() {
   return (
     <main>
       <section className="image-hero contact-image-hero">
-        <Nav />
+        <PhotoNav />
 
         <div className="image-hero-bg">
           <img src={heroImages.contacto} alt="Reservas Entre Calles CDMX" />

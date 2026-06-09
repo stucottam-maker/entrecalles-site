@@ -4,7 +4,6 @@
   --red-deep: #a93632;
   --black: #101010;
   --paper: #fff8ee;
-  --cream: #fff1df;
   --muted: #74665d;
   --line: rgba(16, 16, 16, 0.12);
   --white-line: rgba(255, 255, 255, 0.34);
@@ -114,6 +113,25 @@ h3 {
   border-radius: 999px;
 }
 
+/* PHOTO NAV CLICK ZONES */
+
+.photo-nav {
+  position: absolute;
+  top: 26px;
+  right: 48px;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: 70px 125px 135px 92px 100px 100px 46px;
+  gap: 18px;
+  align-items: center;
+}
+
+.photo-nav button {
+  height: 34px;
+  opacity: 0;
+  cursor: pointer;
+}
+
 /* HERO */
 
 .image-hero,
@@ -172,14 +190,14 @@ h3 {
   background:
     linear-gradient(
       to right,
-      rgba(16, 16, 16, 0.9),
-      rgba(16, 16, 16, 0.52),
-      rgba(16, 16, 16, 0.12)
+      rgba(16, 16, 16, 0.66),
+      rgba(16, 16, 16, 0.32),
+      rgba(16, 16, 16, 0.08)
     ),
     linear-gradient(
       to top,
-      rgba(16, 16, 16, 0.72),
-      rgba(16, 16, 16, 0.05)
+      rgba(16, 16, 16, 0.56),
+      rgba(16, 16, 16, 0.02)
     );
 }
 
@@ -718,6 +736,22 @@ footer p {
     display: none;
   }
 
+  .photo-nav {
+    top: 18px;
+    right: 20px;
+    display: flex;
+  }
+
+  .photo-nav button:not(:last-child) {
+    display: none;
+  }
+
+  .photo-nav button:last-child {
+    width: 48px;
+    height: 40px;
+    opacity: 0;
+  }
+
   .nav-logo {
     width: 210px;
     height: 76px;
@@ -741,8 +775,8 @@ footer p {
     background:
       linear-gradient(
         to top,
-        rgba(16, 16, 16, 0.86),
-        rgba(16, 16, 16, 0.28)
+        rgba(16, 16, 16, 0.72),
+        rgba(16, 16, 16, 0.18)
       );
   }
 

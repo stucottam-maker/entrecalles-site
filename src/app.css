@@ -70,7 +70,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  z-index: 20;
+  z-index: 30;
 }
 
 .nav-logo {
@@ -100,8 +100,8 @@ h3 {
 }
 
 .site-nav nav button {
-  opacity: 0.9;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
+  opacity: 0.94;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.7);
 }
 
 .site-nav nav button:hover {
@@ -154,19 +154,38 @@ h3 {
   position: absolute;
   inset: 0;
   z-index: 0;
+  overflow: hidden;
 }
 
 .image-hero-bg img {
   width: 100%;
-  height: 118%;
+  height: 112%;
   object-fit: cover;
   object-position: center 58%;
   display: block;
 }
 
+/* Strong crop for images that still contain baked-in menu at the top */
+
 .crop-top-hero .image-hero-bg img {
-  height: 124%;
-  object-position: center 68%;
+  height: 100%;
+  object-position: center center;
+  transform: scale(1.36) translateY(-12%);
+  transform-origin: center center;
+}
+
+.crop-top-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 190px;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    rgba(16, 16, 16, 0.98),
+    rgba(16, 16, 16, 0.78),
+    rgba(16, 16, 16, 0)
+  );
 }
 
 .image-hero::after {
@@ -177,16 +196,16 @@ h3 {
   background:
     linear-gradient(
       to bottom,
-      rgba(16, 16, 16, 0.9) 0%,
-      rgba(16, 16, 16, 0.7) 18%,
-      rgba(16, 16, 16, 0.4) 52%,
-      rgba(16, 16, 16, 0.76) 100%
+      rgba(16, 16, 16, 0.92) 0%,
+      rgba(16, 16, 16, 0.68) 18%,
+      rgba(16, 16, 16, 0.42) 52%,
+      rgba(16, 16, 16, 0.78) 100%
     ),
     linear-gradient(
       to right,
-      rgba(16, 16, 16, 0.86),
-      rgba(16, 16, 16, 0.45),
-      rgba(16, 16, 16, 0.14)
+      rgba(16, 16, 16, 0.88),
+      rgba(16, 16, 16, 0.46),
+      rgba(16, 16, 16, 0.12)
     );
 }
 
@@ -194,7 +213,7 @@ h3 {
 .image-hero .hero-content,
 .contact-hero-grid {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* HERO CONTENT */
@@ -211,7 +230,7 @@ h3 {
   gap: 18px;
   text-align: left;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 .hero-content.centered {
@@ -750,18 +769,22 @@ footer p {
   }
 
   .crop-top-hero .image-hero-bg img {
-    height: 124%;
-    object-position: center 72%;
+    height: 100%;
+    transform: scale(1.42) translateY(-13%);
+  }
+
+  .crop-top-hero::before {
+    height: 170px;
   }
 
   .image-hero::after {
     background:
       linear-gradient(
         to bottom,
-        rgba(16, 16, 16, 0.88) 0%,
-        rgba(16, 16, 16, 0.55) 28%,
-        rgba(16, 16, 16, 0.38) 58%,
-        rgba(16, 16, 16, 0.8) 100%
+        rgba(16, 16, 16, 0.9) 0%,
+        rgba(16, 16, 16, 0.62) 28%,
+        rgba(16, 16, 16, 0.42) 58%,
+        rgba(16, 16, 16, 0.82) 100%
       );
   }
 

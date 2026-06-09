@@ -4,7 +4,7 @@ const logo =
   'https://www.dropbox.com/scl/fi/lzqf6sdwjdbkiqxrxr4uj/entre-calles-banner.png?rlkey=fqd61nsibcgtmtrj788uvma6r&st=l9zz88gn&raw=1';
 
 const heroImage =
-  'https://www.dropbox.com/scl/fi/7ygw4ntpo4c3sp9qjz8kv/a_wide_cinematic_street_scene_at_golden_hour_suns.jpg?rlkey=uidut7ey4rj6arjzmin4ucr7s&st=b48xteph&raw=1';
+  'https://www.dropbox.com/scl/fi/7ygw4ntpo4c3sp9qjz8kv/a_wide_cinematic_street_scene_at_golden_hour_suns.png?rlkey=uidut7ey4rj6arjzmin4ucr7s&st=b48xteph&raw=1';
 
 const images = {
   mercado:

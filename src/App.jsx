@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 const bannerImage =
   'https://www.dropbox.com/scl/fi/lzqf6sdwjdbkiqxrxr4uj/entre-calles-banner.png?rlkey=fqd61nsibcgtmtrj788uvma6r&st=l9zz88gn&raw=1';
 
+const homeHeroImage =
+  'https://www.dropbox.com/scl/fi/7ygw4ntpo4c3sp9qjz8kv/a_wide_cinematic_street_scene_at_golden_hour_suns.jpg?rlkey=uidut7ey4rj6arjzmin4ucr7s&st=b48xteph&raw=1';
+
 const rollingHeroImage =
   'https://www.dropbox.com/scl/fi/7ygw4ntpo4c3sp9qjz8kv/a_wide_cinematic_street_scene_at_golden_hour_suns.jpg?rlkey=uidut7ey4rj6arjzmin4ucr7s&st=b48xteph&raw=1';
 
@@ -112,19 +115,19 @@ function HomePage() {
 
         <div className="image-hero-bg">
           <img
-            src={rollingHeroImage}
+            src={homeHeroImage}
             alt="Entre Calles gastronomic experience in Mexico City"
           />
         </div>
 
-        <div className="hero-inner image-hero-content">
+        <div className="hero-content">
           <p className="hero-kicker">Ciudad de México · Food Experiences</p>
-          <h1>
+          <h1 className="hero-title">
             Saborea la CDMX
             <br />
             entre calles.
           </h1>
-          <p>
+          <p className="hero-copy">
             Recorridos gastronómicos, experiencias privadas y rutas itinerantes
             por la Ciudad de México. Mercados, taquerías, cantinas, mezcal,
             barrios y una ciudad que se entiende mejor comiendo.
@@ -235,10 +238,16 @@ function ExperiencesPage() {
           <img src={tourImages.mercado} alt="Mercado gastronómico en CDMX" />
         </div>
 
-        <div className="page-hero-inner image-hero-content">
+        <div className="hero-content centered">
           <p className="hero-kicker">Experiencias</p>
-          <h1>Rutas sencillas, reales y llenas de sabor.</h1>
-          <p>
+          <h1 className="hero-title">
+            Rutas sencillas,
+            <br />
+            reales y llenas
+            <br />
+            de sabor.
+          </h1>
+          <p className="hero-copy">
             Tacos, mercados, cantinas y mezcal. Elige una ruta o pide una
             experiencia hecha a tu medida.
           </p>
@@ -281,14 +290,14 @@ function RollingPage() {
           />
         </div>
 
-        <div className="rolling-hero-inner image-hero-content">
+        <div className="hero-content">
           <p className="hero-kicker">Próximamente · CDMX</p>
-          <h1>
+          <h1 className="hero-title">
             CDMX servida
             <br />
             sobre ruedas.
           </h1>
-          <p>
+          <p className="hero-copy">
             Una experiencia gastronómica itinerante por la Ciudad de México:
             sabores de barrio, cocina mexicana, vistas urbanas y una mesa en
             movimiento.
@@ -299,7 +308,7 @@ function RollingPage() {
               Quiero saber más
             </button>
             <button className="button dark" onClick={() => navigate('/experiencias')}>
-              Ver experiencias actuales
+              Ver experiencias
             </button>
           </div>
         </div>
@@ -355,12 +364,16 @@ function RollingPage() {
 function PrivatePage() {
   return (
     <main>
-      <section className="page-hero">
+      <section className="simple-hero">
         <Nav />
-        <div className="page-hero-inner">
+        <div className="simple-hero-inner">
           <p className="hero-kicker">Tours privados</p>
-          <h1>Una ruta hecha para ti.</h1>
-          <p>
+          <h1 className="hero-title">
+            Una ruta
+            <br />
+            hecha para ti.
+          </h1>
+          <p className="hero-copy">
             Experiencias privadas para parejas, familias, chefs, marcas, prensa,
             equipos de trabajo y viajeros que quieren algo más personal.
           </p>
@@ -396,12 +409,16 @@ function PrivatePage() {
 function AboutPage() {
   return (
     <main>
-      <section className="page-hero">
+      <section className="simple-hero">
         <Nav />
-        <div className="page-hero-inner">
+        <div className="simple-hero-inner">
           <p className="hero-kicker">Nosotros</p>
-          <h1>Nacimos entre calles.</h1>
-          <p>
+          <h1 className="hero-title">
+            Nacimos
+            <br />
+            entre calles.
+          </h1>
+          <p className="hero-copy">
             Entre Calles nace del amor por la Ciudad de México y por su forma
             más honesta de contar historias: la comida.
           </p>
@@ -427,12 +444,12 @@ function AboutPage() {
 function TourPage({ tour }) {
   return (
     <main>
-      <section className="tour-hero">
+      <section className="simple-hero">
         <Nav />
-        <div className="tour-hero-inner">
+        <div className="simple-hero-inner">
           <p className="hero-kicker">{tour.kicker}</p>
-          <h1>{tour.title}</h1>
-          <p>{tour.text}</p>
+          <h1 className="hero-title">{tour.title}</h1>
+          <p className="hero-copy">{tour.text}</p>
         </div>
       </section>
 
@@ -491,7 +508,11 @@ function Contact() {
         <img src={bannerImage} alt="Entre Calles" />
 
         <p className="eyebrow light">Reservas</p>
-        <h2>¿Listo para probar la CDMX?</h2>
+        <h2 className="contact-title">
+          ¿Listo para
+          <br />
+          probar la CDMX?
+        </h2>
         <p>
           Escríbenos con tus fechas, número de personas, idioma, tipo de
           experiencia y restricciones alimentarias.
@@ -561,21 +582,21 @@ function EnglishPage() {
 
         <div className="image-hero-bg">
           <img
-            src={rollingHeroImage}
+            src={homeHeroImage}
             alt="Entre Calles gastronomic experience in Mexico City"
           />
         </div>
 
-        <div className="hero-inner image-hero-content">
+        <div className="hero-content">
           <p className="hero-kicker">Mexico City · Food Experiences</p>
-          <h1>
+          <h1 className="hero-title">
             Taste Mexico City
             <br />
-            between the streets.
+            between streets.
           </h1>
-          <p>
-            Walking food tours, private routes and future gastronomic
-            experiences on wheels through Mexico City.
+          <p className="hero-copy">
+            Walking food tours, private routes and future gastronomic experiences
+            on wheels through Mexico City.
           </p>
 
           <div className="hero-actions">

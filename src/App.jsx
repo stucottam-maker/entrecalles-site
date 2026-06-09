@@ -115,20 +115,6 @@ function Nav() {
   );
 }
 
-function PhotoNav() {
-  return (
-    <div className="photo-nav" aria-label="Site navigation">
-      <button aria-label="Inicio" onClick={() => navigate('/')} />
-      <button aria-label="Experiencias" onClick={() => navigate('/experiencias')} />
-      <button aria-label="Sobre ruedas" onClick={() => navigate('/sobre-ruedas')} />
-      <button aria-label="Privados" onClick={() => navigate('/privados')} />
-      <button aria-label="Nosotros" onClick={() => navigate('/nosotros')} />
-      <button aria-label="Contacto" onClick={() => navigate('/contacto')} />
-      <button aria-label="English" onClick={() => navigate('/en')} />
-    </div>
-  );
-}
-
 function ImageHero({
   image,
   alt,
@@ -138,11 +124,10 @@ function ImageHero({
   children,
   centered = false,
   className = '',
-  usePhotoNav = false,
 }) {
   return (
     <section className={`image-hero ${className}`}>
-      {usePhotoNav ? <PhotoNav /> : <Nav />}
+      <Nav />
 
       <div className="image-hero-bg">
         <img src={image} alt={alt} />
@@ -286,8 +271,7 @@ function ExperiencesPage() {
           </>
         }
         copy="Tacos, mercados, cantinas y mezcal. Elige una ruta o pide una experiencia hecha a tu medida."
-        className="experiences-image-hero"
-        usePhotoNav
+        className="experiences-image-hero crop-top-hero"
       />
 
       <section className="section">
@@ -392,6 +376,7 @@ function PrivatePage() {
     <main>
       <section className="simple-hero">
         <Nav />
+
         <div className="simple-hero-inner">
           <p className="hero-kicker">Tours privados</p>
           <h1 className="hero-title">
@@ -447,8 +432,7 @@ function AboutPage() {
           </>
         }
         copy="Entre Calles nace del amor por la Ciudad de México y por su forma más honesta de contar historias: la comida."
-        className="about-image-hero"
-        usePhotoNav
+        className="about-image-hero crop-top-hero"
       />
 
       <section className="about-section">
@@ -472,6 +456,7 @@ function TourPage({ tour }) {
     <main>
       <section className="simple-hero">
         <Nav />
+
         <div className="simple-hero-inner">
           <p className="hero-kicker">{tour.kicker}</p>
           <h1 className="hero-title">{tour.title}</h1>
@@ -519,8 +504,8 @@ function TourPage({ tour }) {
 function ContactPage() {
   return (
     <main>
-      <section className="image-hero contact-image-hero">
-        <PhotoNav />
+      <section className="image-hero contact-image-hero crop-top-hero">
+        <Nav />
 
         <div className="image-hero-bg">
           <img src={heroImages.contacto} alt="Reservas Entre Calles CDMX" />

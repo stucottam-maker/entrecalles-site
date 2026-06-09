@@ -3,6 +3,9 @@ import { useEffect, useState } from 'react';
 const bannerImage =
   'https://www.dropbox.com/scl/fi/lzqf6sdwjdbkiqxrxr4uj/entre-calles-banner.png?rlkey=fqd61nsibcgtmtrj788uvma6r&st=l9zz88gn&raw=1';
 
+const rollingHeroImage =
+  'https://www.dropbox.com/scl/fi/7ygw4ntpo4c3sp9qjz8kv/a_wide_cinematic_street_scene_at_golden_hour_suns.jpg?rlkey=uidut7ey4rj6arjzmin4ucr7s&st=b48xteph&raw=1';
+
 const tourImages = {
   mole:
     'https://www.dropbox.com/scl/fi/bs3ropk51dw2vflo5ybwo/mole-cazuela-square-placeholder.jpg?rlkey=asxqqioyajpm3chn66di1wm98&st=0v2mwfjf&raw=1',
@@ -12,11 +15,11 @@ const tourImages = {
     'https://www.dropbox.com/scl/fi/vt4oexbd60vsyugelcq2p/mercado-chiles-square-placeholder.jpg?rlkey=7x835zxj9rxtw80hd0srz0mvv&st=syk61n3e&raw=1',
 };
 
-const tours = [
+const experiences = [
   {
     slug: 'tacos',
     title: 'Ruta de Tacos',
-    tag: 'Trompo · Comal · Salsa',
+    kicker: 'Trompo · Comal · Salsa',
     image: tourImages.antojitos,
     intro:
       'Pastor, suadero, campechano, carnitas y salsas que cuentan la ciudad desde la banqueta.',
@@ -28,7 +31,7 @@ const tours = [
   {
     slug: 'mercado',
     title: 'Mercado y Desayuno',
-    tag: 'Mañana · Mercado · Antojitos',
+    kicker: 'Mañana · Mercado · Antojitos',
     image: tourImages.mercado,
     intro:
       'Tamales, jugos, quesadillas, fruta, guisados y pasillos llenos de vida.',
@@ -40,7 +43,7 @@ const tours = [
   {
     slug: 'cantinas',
     title: 'Cantinas y Mezcal',
-    tag: 'Botanas · Pulque · Mezcal',
+    kicker: 'Botanas · Pulque · Mezcal',
     image: tourImages.mole,
     intro: 'Barras, botanas, mezcal, pulque y cantinas de barrio.',
     text:
@@ -48,16 +51,24 @@ const tours = [
     duration: '3 horas',
     ideal: 'Parejas · Amigos · Viajeros adultos',
   },
+];
+
+const rollingFormats = [
   {
-    slug: 'privada',
-    title: 'Experiencia Privada',
-    tag: 'A medida · Grupos · Especiales',
-    image: tourImages.antojitos,
-    intro: 'Una ruta personalizada según tus gustos, fechas y grupo.',
-    text:
-      'Diseñamos experiencias privadas para viajeros, familias, chefs, marcas, prensa, equipos de trabajo y personas que quieren algo más personal.',
-    duration: 'A medida',
-    ideal: 'Chefs · Marcas · Familias · Empresas',
+    title: 'Día de mercado',
+    text: 'Una ruta luminosa por mercados, sabores de mañana, antojitos y comida mexicana servida en movimiento.',
+  },
+  {
+    title: 'Cena CDMX',
+    text: 'Una experiencia nocturna: menú inspirado en barrios, luces de la ciudad y cocina mexicana con historia.',
+  },
+  {
+    title: 'Mezcal y noche',
+    text: 'Botanas, mezcal, pulque, cantinas y la ciudad vista desde otra ventana.',
+  },
+  {
+    title: 'Ruta privada',
+    text: 'Una experiencia bajo solicitud para marcas, grupos, prensa, chefs o eventos especiales.',
   },
 ];
 
@@ -81,6 +92,7 @@ function Nav() {
       <nav>
         <button onClick={() => navigate('/')}>Inicio</button>
         <button onClick={() => navigate('/experiencias')}>Experiencias</button>
+        <button onClick={() => navigate('/sobre-ruedas')}>Sobre ruedas</button>
         <button onClick={() => navigate('/privados')}>Privados</button>
         <button onClick={() => navigate('/nosotros')}>Nosotros</button>
         <button onClick={() => navigate('/contacto')}>Contacto</button>
@@ -95,35 +107,28 @@ function Nav() {
 function HomePage() {
   return (
     <main>
-      <section className="hero">
+      <section className="hero home-hero">
         <Nav />
 
         <div className="hero-inner">
-          <p className="hero-kicker">Ciudad de México · Food Tours</p>
-
+          <p className="hero-kicker">Ciudad de México · Food Experiences</p>
           <h1>
             Saborea la CDMX
             <br />
             entre calles.
           </h1>
-
-          <p className="hero-subtitle">
-            Mercados, taquerías, cantinas y rincones de barrio. Caminamos,
-            comemos y contamos la ciudad desde sus sabores más reales.
+          <p>
+            Recorridos gastronómicos, experiencias privadas y rutas itinerantes
+            por la Ciudad de México. Mercados, taquerías, cantinas, mezcal,
+            barrios y una ciudad que se entiende mejor comiendo.
           </p>
 
           <div className="hero-actions">
-            <button
-              className="button dark"
-              onClick={() => navigate('/experiencias')}
-            >
+            <button className="button dark" onClick={() => navigate('/experiencias')}>
               Ver experiencias
             </button>
-            <button
-              className="button light"
-              onClick={() => navigate('/contacto')}
-            >
-              Reservar
+            <button className="button light" onClick={() => navigate('/sobre-ruedas')}>
+              Sobre ruedas
             </button>
           </div>
         </div>
@@ -133,25 +138,47 @@ function HomePage() {
         <p>Llevamos tu paladar al límite.</p>
       </section>
 
-      <section className="intro home-intro">
+      <section className="intro">
         <div>
           <p className="eyebrow">Qué hacemos</p>
-          <h2>La ciudad se entiende mejor comiendo.</h2>
+          <h2>Recorremos la CDMX por donde se come de verdad.</h2>
         </div>
-
         <p>
-          Recorridos gastronómicos por la Ciudad de México para conocer mercados,
-          puestos, comales, barras, esquinas, salsas y conversaciones.
+          Entre Calles crea experiencias gastronómicas para probar la ciudad
+          desde sus mercados, puestos, barras, comales, cantinas y esquinas.
+          Nada rígido. Nada de postal. Solo la ciudad viva, servida con salsa.
         </p>
+      </section>
+
+      <section className="feature-grid">
+        <FeatureCard
+          title="Experiencias a pie"
+          text="Rutas por tacos, mercados, antojitos, cantinas y mezcal."
+          button="Ver rutas"
+          onClick={() => navigate('/experiencias')}
+        />
+        <FeatureCard
+          title="Sobre ruedas"
+          text="Una futura mesa en movimiento por la Ciudad de México."
+          button="Conocer concepto"
+          onClick={() => navigate('/sobre-ruedas')}
+          featured
+        />
+        <FeatureCard
+          title="Privados"
+          text="Rutas personalizadas para viajeros, chefs, marcas y grupos."
+          button="Pedir ruta"
+          onClick={() => navigate('/privados')}
+        />
       </section>
 
       <ImageStrip />
 
       <section className="home-cta">
-        <p className="eyebrow">Experiencias</p>
-        <h2>Elige una ruta y sal a comer la ciudad.</h2>
-        <button className="button red" onClick={() => navigate('/experiencias')}>
-          Ver todas las experiencias
+        <p className="eyebrow">Reservas</p>
+        <h2>Dinos qué quieres probar y armamos la ruta.</h2>
+        <button className="button red" onClick={() => navigate('/contacto')}>
+          Contactar
         </button>
       </section>
 
@@ -160,19 +187,26 @@ function HomePage() {
   );
 }
 
+function FeatureCard({ title, text, button, onClick, featured }) {
+  return (
+    <article className={featured ? 'feature-card featured' : 'feature-card'}>
+      <h3>{title}</h3>
+      <p>{text}</p>
+      <button onClick={onClick}>{button} →</button>
+    </article>
+  );
+}
+
 function ImageStrip() {
   return (
     <section className="image-strip">
       <article className="image-card">
-        <img
-          src={tourImages.mercado}
-          alt="Mercado gastronómico en Ciudad de México"
-        />
+        <img src={tourImages.mercado} alt="Mercado gastronómico en CDMX" />
         <span>Mercados</span>
       </article>
 
       <article className="image-card">
-        <img src={tourImages.mole} alt="Cocina tradicional mexicana" />
+        <img src={tourImages.mole} alt="Cocina mexicana tradicional" />
         <span>Cocina viva</span>
       </article>
 
@@ -189,32 +223,26 @@ function ExperiencesPage() {
     <main>
       <section className="page-hero">
         <Nav />
-
         <div className="page-hero-inner">
           <p className="hero-kicker">Experiencias</p>
           <h1>Rutas sencillas, reales y llenas de sabor.</h1>
           <p>
-            Elige entre tacos, mercados, cantinas o una experiencia privada hecha
-            a tu medida.
+            Tacos, mercados, cantinas y mezcal. Elige una ruta o pide una
+            experiencia hecha a tu medida.
           </p>
         </div>
       </section>
 
       <section className="section">
         <div className="tour-grid">
-          {tours.map((tour) => (
+          {experiences.map((tour) => (
             <article className="tour-card" key={tour.slug}>
               <div className="tour-card-image">
                 <img src={tour.image} alt={tour.title} />
               </div>
-
-              <span>{tour.tag}</span>
-
-              <div>
-                <h3>{tour.title}</h3>
-                <p>{tour.intro}</p>
-              </div>
-
+              <span>{tour.kicker}</span>
+              <h3>{tour.title}</h3>
+              <p>{tour.intro}</p>
               <button onClick={() => navigate(`/tours/${tour.slug}`)}>
                 Ver ruta →
               </button>
@@ -228,40 +256,124 @@ function ExperiencesPage() {
   );
 }
 
-function PrivatePage() {
-  const privateTour = tours.find((item) => item.slug === 'privada');
+function RollingPage() {
+  return (
+    <main>
+      <section className="image-hero rolling-hero">
+        <Nav />
 
+        <div className="image-hero-bg">
+          <img
+            src={rollingHeroImage}
+            alt="Entre Calles gastronomic bus experience in Mexico City"
+          />
+        </div>
+
+        <div className="rolling-hero-inner">
+          <p className="hero-kicker">Próximamente · CDMX</p>
+          <h1>
+            CDMX servida
+            <br />
+            sobre ruedas.
+          </h1>
+          <p>
+            Una experiencia gastronómica itinerante por la Ciudad de México:
+            sabores de barrio, cocina mexicana, vistas urbanas y una mesa en
+            movimiento.
+          </p>
+
+          <div className="hero-actions">
+            <button className="button light" onClick={() => navigate('/contacto')}>
+              Quiero saber más
+            </button>
+            <button className="button dark" onClick={() => navigate('/experiencias')}>
+              Ver experiencias actuales
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="intro">
+        <div>
+          <p className="eyebrow">Sobre ruedas</p>
+          <h2>Una mesa en movimiento por la Ciudad de México.</h2>
+        </div>
+        <p>
+          Entre Calles sobre ruedas será una forma distinta de probar la CDMX:
+          comida, bebidas, barrios, historias y vistas de la ciudad desde una
+          experiencia itinerante.
+        </p>
+      </section>
+
+      <section className="section">
+        <div className="section-heading">
+          <p className="eyebrow">Formatos posibles</p>
+          <h2>De día, de noche o hecho a medida.</h2>
+        </div>
+
+        <div className="rolling-grid">
+          {rollingFormats.map((item) => (
+            <article className="rolling-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="rolling-note">
+        <p className="eyebrow">En desarrollo</p>
+        <h2>Próximamente / bajo solicitud.</h2>
+        <p>
+          Esta experiencia está en desarrollo y dependerá de permisos, ruta,
+          vehículo, seguridad, cocina y operación. Por ahora, estamos
+          recopilando interés para experiencias privadas, colaboraciones y
+          eventos especiales.
+        </p>
+        <button className="button red" onClick={() => navigate('/contacto')}>
+          Registrar interés
+        </button>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
+function PrivatePage() {
   return (
     <main>
       <section className="page-hero">
         <Nav />
-
         <div className="page-hero-inner">
           <p className="hero-kicker">Tours privados</p>
           <h1>Una ruta hecha para ti.</h1>
           <p>
-            Diseñamos experiencias privadas para parejas, familias, chefs,
-            marcas, prensa, equipos de trabajo y viajeros que quieren algo más
-            personal.
+            Experiencias privadas para parejas, familias, chefs, marcas, prensa,
+            equipos de trabajo y viajeros que quieren algo más personal.
           </p>
         </div>
       </section>
 
-      <section className="tour-detail-section">
-        <div className="tour-page-image">
-          <img src={privateTour.image} alt={privateTour.title} />
+      <section className="intro">
+        <div>
+          <p className="eyebrow">A medida</p>
+          <h2>Dinos el antojo. Nosotros armamos la ruta.</h2>
         </div>
+        <p>
+          Podemos diseñar rutas de tacos, mercados, cocina regional, mezcal,
+          vegetarianas, nocturnas, familiares o enfocadas en investigación
+          gastronómica.
+        </p>
+      </section>
 
-        <div className="tour-cta">
-          <h2>Cuéntanos qué quieres probar.</h2>
-          <p>
-            Tacos, mercados, cocina regional, mezcal, vegetarianos,
-            investigación gastronómica o una ruta para grupos especiales.
-          </p>
-          <button className="button red" onClick={() => navigate('/contacto')}>
-            Pedir ruta privada
-          </button>
-        </div>
+      <ImageStrip />
+
+      <section className="home-cta">
+        <h2>¿Qué tipo de experiencia quieres?</h2>
+        <button className="button red" onClick={() => navigate('/contacto')}>
+          Pedir ruta privada
+        </button>
       </section>
 
       <Footer />
@@ -274,13 +386,12 @@ function AboutPage() {
     <main>
       <section className="page-hero">
         <Nav />
-
         <div className="page-hero-inner">
           <p className="hero-kicker">Nosotros</p>
           <h1>Nacimos entre calles.</h1>
           <p>
-            Entre Calles nace del amor por la Ciudad de México y por su forma más
-            honesta de contar historias: la comida.
+            Entre Calles nace del amor por la Ciudad de México y por su forma
+            más honesta de contar historias: la comida.
           </p>
         </div>
       </section>
@@ -301,23 +412,13 @@ function AboutPage() {
   );
 }
 
-function ContactPage() {
-  return (
-    <main>
-      <Contact />
-      <Footer />
-    </main>
-  );
-}
-
 function TourPage({ tour }) {
   return (
     <main>
       <section className="tour-hero">
         <Nav />
-
         <div className="tour-hero-inner">
-          <p className="hero-kicker">{tour.tag}</p>
+          <p className="hero-kicker">{tour.kicker}</p>
           <h1>{tour.title}</h1>
           <p>{tour.text}</p>
         </div>
@@ -333,12 +434,10 @@ function TourPage({ tour }) {
             <p className="eyebrow">Duración</p>
             <h3>{tour.duration}</h3>
           </div>
-
           <div>
             <p className="eyebrow">Ideal para</p>
             <h3>{tour.ideal}</h3>
           </div>
-
           <div>
             <p className="eyebrow">Incluye</p>
             <h3>Degustaciones, bebidas seleccionadas y anfitrión local.</h3>
@@ -348,8 +447,8 @@ function TourPage({ tour }) {
         <div className="tour-cta">
           <h2>¿Te late esta ruta?</h2>
           <p>
-            Escríbenos con tus fechas, número de personas, idioma y
-            restricciones alimentarias.
+            Escríbenos con tus fechas, número de personas, idioma y restricciones
+            alimentarias.
           </p>
           <button className="button red" onClick={() => navigate('/contacto')}>
             Reservar esta experiencia
@@ -362,45 +461,10 @@ function TourPage({ tour }) {
   );
 }
 
-function EnglishPage() {
+function ContactPage() {
   return (
     <main>
-      <section className="page-hero">
-        <Nav />
-
-        <div className="page-hero-inner">
-          <p className="hero-kicker">Mexico City · Food Tours</p>
-          <h1>Taste Mexico City between the streets.</h1>
-          <p>
-            Food walks through markets, taquerías, cantinas and hidden
-            neighbourhood corners. Simple, local and full of flavour.
-          </p>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="tour-grid">
-          {tours.map((tour) => (
-            <article className="tour-card" key={tour.slug}>
-              <div className="tour-card-image">
-                <img src={tour.image} alt={tour.title} />
-              </div>
-
-              <span>{tour.tag}</span>
-
-              <div>
-                <h3>{tour.title}</h3>
-                <p>{tour.intro}</p>
-              </div>
-
-              <button onClick={() => navigate(`/tours/${tour.slug}`)}>
-                View tour →
-              </button>
-            </article>
-          ))}
-        </div>
-      </section>
-
+      <Contact />
       <Footer />
     </main>
   );
@@ -411,7 +475,7 @@ function Contact() {
     <section className="contact-section">
       <Nav />
 
-      <div id="contacto" className="contact-inner">
+      <div className="contact-inner">
         <img src={bannerImage} alt="Entre Calles" />
 
         <p className="eyebrow light">Reservas</p>
@@ -421,8 +485,45 @@ function Contact() {
           experiencia y restricciones alimentarias.
         </p>
 
-        <div className="contact-actions">
-          <a className="button light" href="https://wa.me/5210000000000">
+        <form
+          className="contact-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+        >
+          <div className="form-row">
+            <input type="text" name="name" placeholder="Nombre" required />
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
+
+          <div className="form-row">
+            <input type="text" name="date" placeholder="Fecha aproximada" />
+            <input type="text" name="guests" placeholder="Número de personas" />
+          </div>
+
+          <select name="experience" required defaultValue="">
+            <option value="" disabled>
+              Tipo de experiencia
+            </option>
+            <option value="Ruta de Tacos">Ruta de Tacos</option>
+            <option value="Mercado y Desayuno">Mercado y Desayuno</option>
+            <option value="Cantinas y Mezcal">Cantinas y Mezcal</option>
+            <option value="Sobre ruedas">Sobre ruedas</option>
+            <option value="Ruta privada">Ruta privada</option>
+          </select>
+
+          <textarea
+            name="message"
+            placeholder="Cuéntanos qué te gustaría probar, idioma, restricciones alimentarias o cualquier detalle."
+            rows="5"
+          />
+
+          <button className="button light" type="submit">
+            Enviar solicitud
+          </button>
+        </form>
+
+        <div className="contact-actions contact-secondary">
+          <a className="button outline" href="https://wa.me/5210000000000">
             WhatsApp
           </a>
           <a
@@ -437,6 +538,59 @@ function Contact() {
         </div>
       </div>
     </section>
+  );
+}
+
+function EnglishPage() {
+  return (
+    <main>
+      <section className="page-hero">
+        <Nav />
+        <div className="page-hero-inner">
+          <p className="hero-kicker">Mexico City · Food Experiences</p>
+          <h1>Taste Mexico City between the streets.</h1>
+          <p>
+            Walking food tours, private routes and future gastronomic experiences
+            on wheels through Mexico City.
+          </p>
+        </div>
+      </section>
+
+      <section className="intro">
+        <div>
+          <p className="eyebrow">What we do</p>
+          <h2>We explore Mexico City through the places where people really eat.</h2>
+        </div>
+        <p>
+          Markets, taquerías, cantinas, mezcal, street food and neighbourhood
+          stories. Simple, local and full of flavour.
+        </p>
+      </section>
+
+      <section className="feature-grid">
+        <FeatureCard
+          title="Walking experiences"
+          text="Tacos, markets, cantinas and mezcal across Mexico City."
+          button="See experiences"
+          onClick={() => navigate('/experiencias')}
+        />
+        <FeatureCard
+          title="On wheels"
+          text="A future dining route through the city, served in motion."
+          button="Explore concept"
+          onClick={() => navigate('/sobre-ruedas')}
+          featured
+        />
+        <FeatureCard
+          title="Private routes"
+          text="Custom experiences for travellers, chefs, brands and groups."
+          button="Contact us"
+          onClick={() => navigate('/contacto')}
+        />
+      </section>
+
+      <Footer />
+    </main>
   );
 }
 
@@ -478,10 +632,11 @@ function App() {
     ? path.replace('/tours/', '')
     : '';
 
-  const tour = tours.find((item) => item.slug === tourSlug);
+  const tour = experiences.find((item) => item.slug === tourSlug);
 
   if (path === '/en') return <EnglishPage />;
   if (path === '/experiencias') return <ExperiencesPage />;
+  if (path === '/sobre-ruedas') return <RollingPage />;
   if (path === '/privados') return <PrivatePage />;
   if (path === '/nosotros') return <AboutPage />;
   if (path === '/contacto') return <ContactPage />;

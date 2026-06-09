@@ -1,713 +1,648 @@
-:root {
-  --red: #cc4d47;
-  --red-hot: #df3a36;
-  --black: #101010;
-  --paper: #fff8ee;
-  --muted: #74665d;
-  --line: rgba(16, 16, 16, 0.12);
-  --white-line: rgba(255, 255, 255, 0.34);
-  --max: 1080px;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--black);
-  font-family: Inter, Helvetica, Arial, sans-serif;
-}
-
-button,
-a {
-  color: inherit;
-  font: inherit;
-  text-decoration: none;
-}
-
-button {
-  padding: 0;
-  border: 0;
-  background: none;
-  cursor: pointer;
-}
-
-p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.55;
-}
-
-h1,
-h2,
-h3 {
-  margin: 0;
-  letter-spacing: -0.055em;
-  line-height: 0.96;
-}
-
-h1 {
-  font-size: clamp(3rem, 7vw, 6rem);
-}
-
-h2 {
-  font-size: clamp(2.25rem, 4.8vw, 4.1rem);
-}
-
-h3 {
-  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
-}
-
-/* NAV */
-
-.site-nav {
-  width: 100%;
-  padding: 14px 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-logo {
-  width: 290px;
-  height: 96px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-}
-
-.nav-logo img {
-  width: 520px;
-  max-width: none;
-  display: block;
-  transform: translateX(-110px);
-}
-
-.site-nav nav {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  color: white;
-  font-size: 0.8rem;
-  font-weight: 900;
-}
-
-.site-nav nav button,
-.site-nav nav a {
-  opacity: 0.88;
-}
-
-.site-nav nav button:hover,
-.site-nav nav a:hover {
-  opacity: 1;
-}
-
-.language-link {
-  padding: 7px 11px;
-  border: 1px solid var(--white-line);
-  border-radius: 999px;
-}
-
-/* HERO */
-
-.hero,
-.page-hero,
-.tour-hero,
-.contact-section {
-  background: var(--red);
-  color: white;
-}
-
-.hero {
-  min-height: 68vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-inner {
-  flex: 1;
-  width: min(860px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 0 0 46px;
-  display: grid;
-  align-content: center;
-  gap: 18px;
-  text-align: center;
-}
-
-.hero-kicker {
-  margin: 0;
-  color: white;
-  font-size: 0.72rem;
-  font-weight: 950;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.hero h1,
-.page-hero h1,
-.tour-hero h1,
-.contact-section h2 {
-  color: white;
-}
-
-.hero-subtitle {
-  width: min(560px, 100%);
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 0.98rem;
-}
-
-.page-hero,
-.tour-hero {
-  min-height: 46vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.page-hero-inner,
-.tour-hero-inner {
-  flex: 1;
-  width: min(780px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 18px 0 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-
-.page-hero-inner p:last-child,
-.tour-hero-inner p:last-child {
-  max-width: 620px;
-  margin: 18px auto 0;
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 1rem;
-}
-
-/* BUTTONS */
-
-.hero-actions,
-.contact-actions {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.button {
-  min-height: 42px;
-  padding: 0 20px;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.88rem;
-  font-weight: 950;
-}
-
-.button.dark {
-  background: var(--black);
-  color: white;
-}
-
-.button.light {
-  background: white;
-  color: var(--red);
-}
-
-.button.red {
-  background: var(--red);
-  color: white;
-}
-
-.button.outline {
-  border: 1px solid var(--white-line);
-  color: white;
-}
-
-/* STRIP */
-
-.slogan-strip {
-  padding: 12px 24px;
-  background: var(--black);
-}
-
-.slogan-strip p {
-  color: white;
-  text-align: center;
-  font-size: clamp(0.72rem, 1.4vw, 1rem);
-  font-weight: 950;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-/* LAYOUT */
-
-.intro,
-.section,
-.about-section,
-.private-section,
-.tour-detail-section,
-.image-strip,
-.home-cta {
-  width: min(var(--max), calc(100% - 48px));
-  margin: 0 auto;
-}
-
-.intro {
-  padding: 52px 0 30px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 44px;
-  align-items: end;
-}
-
-.home-intro {
-  padding-bottom: 34px;
-}
-
-.intro > p {
-  font-size: 1rem;
-}
-
-.eyebrow {
-  margin-bottom: 12px;
-  color: var(--red);
-  font-size: 0.72rem;
-  font-weight: 950;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.eyebrow.light {
-  color: white;
-}
-
-.section {
-  padding: 54px 0;
-}
-
-.home-cta {
-  max-width: 760px;
-  padding: 8px 0 58px;
-  text-align: center;
-}
-
-.home-cta .button {
-  margin-top: 22px;
-}
-
-/* IMAGES */
-
-.image-strip {
-  padding: 0 0 52px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.image-card,
-.tour-card-image,
-.tour-page-image {
-  overflow: hidden;
-  background: var(--black);
-}
-
-.image-card {
-  position: relative;
-  aspect-ratio: 5 / 3;
-  border-radius: 20px;
-}
-
-.image-card img,
-.tour-card-image img,
-.tour-page-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  filter: saturate(1.06) contrast(1.04);
-  transform: scale(1.03);
-}
-
-.image-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to top, rgba(16, 16, 16, 0.5), rgba(16, 16, 16, 0.04)),
-    rgba(204, 77, 71, 0.06);
-}
-
-.image-card span {
-  position: absolute;
-  left: 18px;
-  bottom: 16px;
-  z-index: 2;
-  color: white;
-  font-size: 0.76rem;
-  font-weight: 950;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-/* TOUR CARDS */
-
-.tour-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.tour-card {
-  min-height: 320px;
-  padding: 12px;
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.tour-card-image {
-  aspect-ratio: 5 / 3;
-  width: 100%;
-  border-radius: 14px;
-  margin-bottom: 14px;
-}
-
-.tour-card span {
-  color: var(--red);
-  font-size: 0.66rem;
-  font-weight: 950;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.tour-card h3,
-.tour-card p,
-.tour-card button {
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.tour-card p {
-  margin-top: 12px;
-  font-size: 0.94rem;
-}
-
-.tour-card button {
-  margin-top: 18px;
-  padding-bottom: 8px;
-  color: var(--red);
-  font-weight: 950;
-  text-align: left;
-}
-
-/* TOUR DETAIL */
-
-.tour-detail-section {
-  padding: 54px 0;
-}
-
-.tour-page-image {
-  aspect-ratio: 16 / 7;
-  width: 100%;
-  border-radius: 24px;
-  margin-bottom: 14px;
-}
-
-.tour-detail-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-}
-
-.tour-detail-grid div {
-  padding: 22px;
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 20px;
-}
-
-.tour-cta {
-  margin-top: 20px;
-  padding: 38px;
-  background: var(--black);
-  color: white;
-  border-radius: 24px;
-  text-align: center;
-}
-
-.tour-cta h2 {
-  color: white;
-}
-
-.tour-cta p {
-  max-width: 540px;
-  margin: 16px auto 22px;
-  color: rgba(255, 255, 255, 0.78);
-}
-
-/* ABOUT */
-
-.about-section {
-  padding: 54px 0 66px;
-  max-width: 800px;
-  text-align: center;
-}
-
-.about-section p:last-child {
-  max-width: 660px;
-  margin: 18px auto 0;
-}
-
-/* CONTACT */
-
-.contact-section {
-  min-height: 68vh;
-  text-align: center;
-}
-
-.contact-inner {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 18px 28px 58px;
-}
-
-.contact-inner img {
-  width: min(100%, 520px);
-  display: block;
-  margin: 0 auto 22px;
-}
-
-.contact-inner p {
-  max-width: 580px;
-  margin: 18px auto 0;
-  color: rgba(255, 255, 255, 0.84);
-}
-
-/* FOOTER */
-
-footer {
-  width: min(var(--max), calc(100% - 48px));
-  margin: 0 auto;
-  padding: 24px 0;
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  border-top: 1px solid var(--line);
-}
-
-footer p {
-  margin-top: 4px;
-  font-size: 0.92rem;
-}
-
-.footer-links {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  font-size: 0.92rem;
-  font-weight: 900;
-}
-
-/* TABLET */
-
-@media (max-width: 900px) {
-  .site-nav {
-    padding: 12px 20px;
-  }
-
-  .site-nav nav a,
-  .site-nav nav button:not(.language-link) {
-    display: none;
-  }
-
-  .nav-logo {
-    width: 210px;
-    height: 76px;
-  }
-
-  .nav-logo img {
-    width: 390px;
-    transform: translateX(-82px);
-  }
-
-  .hero {
-    min-height: 68vh;
-  }
-
-  .hero-inner {
-    width: calc(100% - 40px);
-    padding: 16px 0 42px;
-    gap: 16px;
-  }
-
-  .page-hero,
-  .tour-hero {
-    min-height: 48vh;
-  }
-
-  .page-hero-inner,
-  .tour-hero-inner {
-    width: calc(100% - 40px);
-    padding: 22px 0 44px;
-  }
-
-  h1 {
-    font-size: clamp(2.65rem, 13vw, 4.5rem);
-  }
-
-  h2 {
-    font-size: clamp(2.05rem, 10vw, 3.7rem);
-  }
-
-  h3 {
-    font-size: clamp(1.45rem, 8vw, 2.2rem);
-  }
-
-  .intro,
-  .section,
-  .about-section,
-  .private-section,
-  .tour-detail-section,
-  .image-strip,
-  .home-cta {
-    width: calc(100% - 40px);
-  }
-
-  .intro {
-    padding: 46px 0 28px;
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .section {
-    padding: 46px 0;
-  }
-
-  .home-cta {
-    padding: 0 0 46px;
-  }
-
-  .about-section {
-    padding: 46px 0 54px;
-  }
-
-  .image-strip {
-    padding: 0 0 46px;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
-
-  .image-card,
-  .tour-card-image {
-    aspect-ratio: 5 / 3;
-  }
-
-  .image-card {
-    border-radius: 14px;
-  }
-
-  .image-card span {
-    left: 12px;
-    bottom: 10px;
-    font-size: 0.58rem;
-    letter-spacing: 0.14em;
-  }
-
-  .tour-page-image {
-    aspect-ratio: 4 / 3;
-  }
-
-  .tour-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .tour-card {
-    min-height: auto;
-    padding: 12px;
-    border-radius: 20px;
-  }
-
-  .tour-card button {
-    padding-bottom: 8px;
-  }
-
-  .tour-detail-section {
-    padding: 46px 0;
-  }
-
-  .tour-detail-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .tour-cta {
-    padding: 30px 22px;
-    border-radius: 22px;
-  }
-
-  .contact-section {
-    min-height: 60vh;
-  }
-
-  .contact-inner {
-    padding: 18px 20px 46px;
-  }
-
-  .contact-inner img {
-    width: min(100%, 360px);
-  }
-
-  .contact-actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .contact-actions .button {
-    width: 100%;
-  }
-
-  footer {
-    width: calc(100% - 40px);
-    padding: 22px 0;
-    flex-direction: column;
-  }
-
-  .footer-links {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-}
-
-/* PHONE */
-
-@media (max-width: 560px) {
-  .image-strip {
-    grid-template-columns: 1fr;
-  }
-
-  .image-card {
-    aspect-ratio: 5 / 3;
-    border-radius: 16px;
-  }
-
-  .image-card span {
-    left: 16px;
-    bottom: 14px;
-    font-size: 0.7rem;
-  }
-}
+import { useEffect, useState } from 'react';
+
+const bannerImage =
+  'https://www.dropbox.com/scl/fi/lzqf6sdwjdbkiqxrxr4uj/entre-calles-banner.png?rlkey=fqd61nsibcgtmtrj788uvma6r&st=l9zz88gn&raw=1';
+
+const rollingHeroImage =
+  'https://www.dropbox.com/scl/fi/7ygw4ntpo4c3sp9qjz8kv/a_wide_cinematic_street_scene_at_golden_hour_suns.jpg?rlkey=uidut7ey4rj6arjzmin4ucr7s&st=b48xteph&raw=1';
+
+const tourImages = {
+  mole:
+    'https://www.dropbox.com/scl/fi/bs3ropk51dw2vflo5ybwo/mole-cazuela-square-placeholder.jpg?rlkey=asxqqioyajpm3chn66di1wm98&st=0v2mwfjf&raw=1',
+  antojitos:
+    'https://www.dropbox.com/scl/fi/ptbc81ipxn28czjz9r0wx/mesa-antojitos-square-placeholder.jpg?rlkey=qvlrehpga9nf9uhkphsi470q6&st=006yjhqh&raw=1',
+  mercado:
+    'https://www.dropbox.com/scl/fi/vt4oexbd60vsyugelcq2p/mercado-chiles-square-placeholder.jpg?rlkey=7x835zxj9rxtw80hd0srz0mvv&st=syk61n3e&raw=1',
+};
+
+const experiences = [
+  {
+    slug: 'tacos',
+    title: 'Ruta de Tacos',
+    kicker: 'Trompo · Comal · Salsa',
+    image: tourImages.antojitos,
+    intro:
+      'Pastor, suadero, campechano, carnitas y salsas que cuentan la ciudad desde la banqueta.',
+    text:
+      'Una caminata por taquerías, puestos y sabores esenciales de la ciudad. Comemos de pie, con tortilla en mano, probando la CDMX desde su lenguaje más directo: el taco.',
+    duration: '3 horas',
+    ideal: 'Primera vez en CDMX · Food lovers · Grupos pequeños',
+  },
+  {
+    slug: 'mercado',
+    title: 'Mercado y Desayuno',
+    kicker: 'Mañana · Mercado · Antojitos',
+    image: tourImages.mercado,
+    intro:
+      'Tamales, jugos, quesadillas, fruta, guisados y pasillos llenos de vida.',
+    text:
+      'La ciudad despierta en sus mercados. Esta ruta mezcla desayuno, color, ruido, tradición y sabores de mañana para entender la CDMX desde sus pasillos.',
+    duration: '3 horas',
+    ideal: 'Viajeros curiosos · Familias · Cultura local',
+  },
+  {
+    slug: 'cantinas',
+    title: 'Cantinas y Mezcal',
+    kicker: 'Botanas · Pulque · Mezcal',
+    image: tourImages.mole,
+    intro: 'Barras, botanas, mezcal, pulque y cantinas de barrio.',
+    text:
+      'Una ruta para entender la CDMX desde otra mesa: bebidas tradicionales, botanas, cantinas y conversación. Más que beber, es entrar a una parte viva de la ciudad.',
+    duration: '3 horas',
+    ideal: 'Parejas · Amigos · Viajeros adultos',
+  },
+];
+
+const rollingFormats = [
+  {
+    title: 'Día de mercado',
+    text: 'Una ruta luminosa por mercados, sabores de mañana, antojitos y comida mexicana servida en movimiento.',
+  },
+  {
+    title: 'Cena CDMX',
+    text: 'Una experiencia nocturna: menú inspirado en barrios, luces de la ciudad y cocina mexicana con historia.',
+  },
+  {
+    title: 'Mezcal y noche',
+    text: 'Botanas, mezcal, pulque, cantinas y la ciudad vista desde otra ventana.',
+  },
+  {
+    title: 'Ruta privada',
+    text: 'Una experiencia bajo solicitud para marcas, grupos, prensa, chefs o eventos especiales.',
+  },
+];
+
+function cleanPath(path) {
+  if (!path || path === '/') return '/';
+  return path.replace(/\/+$/, '');
+}
+
+function navigate(path) {
+  window.history.pushState({}, '', path);
+  window.dispatchEvent(new Event('locationchange'));
+}
+
+function Nav() {
+  return (
+    <header className="site-nav">
+      <button className="nav-logo" onClick={() => navigate('/')}>
+        <img src={bannerImage} alt="Entre Calles" />
+      </button>
+
+      <nav>
+        <button onClick={() => navigate('/')}>Inicio</button>
+        <button onClick={() => navigate('/experiencias')}>Experiencias</button>
+        <button onClick={() => navigate('/sobre-ruedas')}>Sobre ruedas</button>
+        <button onClick={() => navigate('/privados')}>Privados</button>
+        <button onClick={() => navigate('/nosotros')}>Nosotros</button>
+        <button onClick={() => navigate('/contacto')}>Contacto</button>
+        <button className="language-link" onClick={() => navigate('/en')}>
+          EN
+        </button>
+      </nav>
+    </header>
+  );
+}
+
+function HomePage() {
+  return (
+    <main>
+      <section className="hero home-hero">
+        <Nav />
+
+        <div className="hero-inner">
+          <p className="hero-kicker">Ciudad de México · Food Experiences</p>
+          <h1>
+            Saborea la CDMX
+            <br />
+            entre calles.
+          </h1>
+          <p>
+            Recorridos gastronómicos, experiencias privadas y rutas itinerantes
+            por la Ciudad de México. Mercados, taquerías, cantinas, mezcal,
+            barrios y una ciudad que se entiende mejor comiendo.
+          </p>
+
+          <div className="hero-actions">
+            <button className="button dark" onClick={() => navigate('/experiencias')}>
+              Ver experiencias
+            </button>
+            <button className="button light" onClick={() => navigate('/sobre-ruedas')}>
+              Sobre ruedas
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="slogan-strip">
+        <p>Llevamos tu paladar al límite.</p>
+      </section>
+
+      <section className="intro">
+        <div>
+          <p className="eyebrow">Qué hacemos</p>
+          <h2>Recorremos la CDMX por donde se come de verdad.</h2>
+        </div>
+        <p>
+          Entre Calles crea experiencias gastronómicas para probar la ciudad
+          desde sus mercados, puestos, barras, comales, cantinas y esquinas.
+          Nada rígido. Nada de postal. Solo la ciudad viva, servida con salsa.
+        </p>
+      </section>
+
+      <section className="feature-grid">
+        <FeatureCard
+          title="Experiencias a pie"
+          text="Rutas por tacos, mercados, antojitos, cantinas y mezcal."
+          button="Ver rutas"
+          onClick={() => navigate('/experiencias')}
+        />
+        <FeatureCard
+          title="Sobre ruedas"
+          text="Una futura mesa en movimiento por la Ciudad de México."
+          button="Conocer concepto"
+          onClick={() => navigate('/sobre-ruedas')}
+          featured
+        />
+        <FeatureCard
+          title="Privados"
+          text="Rutas personalizadas para viajeros, chefs, marcas y grupos."
+          button="Pedir ruta"
+          onClick={() => navigate('/privados')}
+        />
+      </section>
+
+      <ImageStrip />
+
+      <section className="home-cta">
+        <p className="eyebrow">Reservas</p>
+        <h2>Dinos qué quieres probar y armamos la ruta.</h2>
+        <button className="button red" onClick={() => navigate('/contacto')}>
+          Contactar
+        </button>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
+function FeatureCard({ title, text, button, onClick, featured }) {
+  return (
+    <article className={featured ? 'feature-card featured' : 'feature-card'}>
+      <h3>{title}</h3>
+      <p>{text}</p>
+      <button onClick={onClick}>{button} →</button>
+    </article>
+  );
+}
+
+function ImageStrip() {
+  return (
+    <section className="image-strip">
+      <article className="image-card">
+        <img src={tourImages.mercado} alt="Mercado gastronómico en CDMX" />
+        <span>Mercados</span>
+      </article>
+
+      <article className="image-card">
+        <img src={tourImages.mole} alt="Cocina mexicana tradicional" />
+        <span>Cocina viva</span>
+      </article>
+
+      <article className="image-card">
+        <img src={tourImages.antojitos} alt="Antojitos mexicanos" />
+        <span>Antojitos</span>
+      </article>
+    </section>
+  );
+}
+
+function ExperiencesPage() {
+  return (
+    <main>
+      <section className="page-hero">
+        <Nav />
+        <div className="page-hero-inner">
+          <p className="hero-kicker">Experiencias</p>
+          <h1>Rutas sencillas, reales y llenas de sabor.</h1>
+          <p>
+            Tacos, mercados, cantinas y mezcal. Elige una ruta o pide una
+            experiencia hecha a tu medida.
+          </p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="tour-grid">
+          {experiences.map((tour) => (
+            <article className="tour-card" key={tour.slug}>
+              <div className="tour-card-image">
+                <img src={tour.image} alt={tour.title} />
+              </div>
+              <span>{tour.kicker}</span>
+              <h3>{tour.title}</h3>
+              <p>{tour.intro}</p>
+              <button onClick={() => navigate(`/tours/${tour.slug}`)}>
+                Ver ruta →
+              </button>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
+function RollingPage() {
+  return (
+    <main>
+      <section className="image-hero rolling-hero">
+        <Nav />
+
+        <div className="image-hero-bg">
+          <img
+            src={rollingHeroImage}
+            alt="Entre Calles gastronomic bus experience in Mexico City"
+          />
+        </div>
+
+        <div className="rolling-hero-inner">
+          <p className="hero-kicker">Próximamente · CDMX</p>
+          <h1>
+            CDMX servida
+            <br />
+            sobre ruedas.
+          </h1>
+          <p>
+            Una experiencia gastronómica itinerante por la Ciudad de México:
+            sabores de barrio, cocina mexicana, vistas urbanas y una mesa en
+            movimiento.
+          </p>
+
+          <div className="hero-actions">
+            <button className="button light" onClick={() => navigate('/contacto')}>
+              Quiero saber más
+            </button>
+            <button className="button dark" onClick={() => navigate('/experiencias')}>
+              Ver experiencias actuales
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="intro">
+        <div>
+          <p className="eyebrow">Sobre ruedas</p>
+          <h2>Una mesa en movimiento por la Ciudad de México.</h2>
+        </div>
+        <p>
+          Entre Calles sobre ruedas será una forma distinta de probar la CDMX:
+          comida, bebidas, barrios, historias y vistas de la ciudad desde una
+          experiencia itinerante.
+        </p>
+      </section>
+
+      <section className="section">
+        <div className="section-heading">
+          <p className="eyebrow">Formatos posibles</p>
+          <h2>De día, de noche o hecho a medida.</h2>
+        </div>
+
+        <div className="rolling-grid">
+          {rollingFormats.map((item) => (
+            <article className="rolling-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="rolling-note">
+        <p className="eyebrow">En desarrollo</p>
+        <h2>Próximamente / bajo solicitud.</h2>
+        <p>
+          Esta experiencia está en desarrollo y dependerá de permisos, ruta,
+          vehículo, seguridad, cocina y operación. Por ahora, estamos
+          recopilando interés para experiencias privadas, colaboraciones y
+          eventos especiales.
+        </p>
+        <button className="button red" onClick={() => navigate('/contacto')}>
+          Registrar interés
+        </button>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
+function PrivatePage() {
+  return (
+    <main>
+      <section className="page-hero">
+        <Nav />
+        <div className="page-hero-inner">
+          <p className="hero-kicker">Tours privados</p>
+          <h1>Una ruta hecha para ti.</h1>
+          <p>
+            Experiencias privadas para parejas, familias, chefs, marcas, prensa,
+            equipos de trabajo y viajeros que quieren algo más personal.
+          </p>
+        </div>
+      </section>
+
+      <section className="intro">
+        <div>
+          <p className="eyebrow">A medida</p>
+          <h2>Dinos el antojo. Nosotros armamos la ruta.</h2>
+        </div>
+        <p>
+          Podemos diseñar rutas de tacos, mercados, cocina regional, mezcal,
+          vegetarianas, nocturnas, familiares o enfocadas en investigación
+          gastronómica.
+        </p>
+      </section>
+
+      <ImageStrip />
+
+      <section className="home-cta">
+        <h2>¿Qué tipo de experiencia quieres?</h2>
+        <button className="button red" onClick={() => navigate('/contacto')}>
+          Pedir ruta privada
+        </button>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
+function AboutPage() {
+  return (
+    <main>
+      <section className="page-hero">
+        <Nav />
+        <div className="page-hero-inner">
+          <p className="hero-kicker">Nosotros</p>
+          <h1>Nacimos entre calles.</h1>
+          <p>
+            Entre Calles nace del amor por la Ciudad de México y por su forma
+            más honesta de contar historias: la comida.
+          </p>
+        </div>
+      </section>
+
+      <section className="about-section">
+        <p className="eyebrow">Nuestra historia</p>
+        <h2>La comida como forma de entrar a la ciudad.</h2>
+        <p>
+          Creemos que la ciudad no se conoce solo mirando monumentos. Se conoce
+          mordiendo un taco, oliendo el comal, entrando a un mercado, probando
+          una salsa y escuchando a la gente que cocina todos los días.
+        </p>
+      </section>
+
+      <ImageStrip />
+      <Footer />
+    </main>
+  );
+}
+
+function TourPage({ tour }) {
+  return (
+    <main>
+      <section className="tour-hero">
+        <Nav />
+        <div className="tour-hero-inner">
+          <p className="hero-kicker">{tour.kicker}</p>
+          <h1>{tour.title}</h1>
+          <p>{tour.text}</p>
+        </div>
+      </section>
+
+      <section className="tour-detail-section">
+        <div className="tour-page-image">
+          <img src={tour.image} alt={tour.title} />
+        </div>
+
+        <div className="tour-detail-grid">
+          <div>
+            <p className="eyebrow">Duración</p>
+            <h3>{tour.duration}</h3>
+          </div>
+          <div>
+            <p className="eyebrow">Ideal para</p>
+            <h3>{tour.ideal}</h3>
+          </div>
+          <div>
+            <p className="eyebrow">Incluye</p>
+            <h3>Degustaciones, bebidas seleccionadas y anfitrión local.</h3>
+          </div>
+        </div>
+
+        <div className="tour-cta">
+          <h2>¿Te late esta ruta?</h2>
+          <p>
+            Escríbenos con tus fechas, número de personas, idioma y restricciones
+            alimentarias.
+          </p>
+          <button className="button red" onClick={() => navigate('/contacto')}>
+            Reservar esta experiencia
+          </button>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
+function ContactPage() {
+  return (
+    <main>
+      <Contact />
+      <Footer />
+    </main>
+  );
+}
+
+function Contact() {
+  return (
+    <section className="contact-section">
+      <Nav />
+
+      <div className="contact-inner">
+        <img src={bannerImage} alt="Entre Calles" />
+
+        <p className="eyebrow light">Reservas</p>
+        <h2>¿Listo para probar la CDMX?</h2>
+        <p>
+          Escríbenos con tus fechas, número de personas, idioma, tipo de
+          experiencia y restricciones alimentarias.
+        </p>
+
+        <form
+          className="contact-form"
+          action="https://formspree.io/f/YOUR_FORM_ID"
+          method="POST"
+        >
+          <div className="form-row">
+            <input type="text" name="name" placeholder="Nombre" required />
+            <input type="email" name="email" placeholder="Email" required />
+          </div>
+
+          <div className="form-row">
+            <input type="text" name="date" placeholder="Fecha aproximada" />
+            <input type="text" name="guests" placeholder="Número de personas" />
+          </div>
+
+          <select name="experience" required defaultValue="">
+            <option value="" disabled>
+              Tipo de experiencia
+            </option>
+            <option value="Ruta de Tacos">Ruta de Tacos</option>
+            <option value="Mercado y Desayuno">Mercado y Desayuno</option>
+            <option value="Cantinas y Mezcal">Cantinas y Mezcal</option>
+            <option value="Sobre ruedas">Sobre ruedas</option>
+            <option value="Ruta privada">Ruta privada</option>
+          </select>
+
+          <textarea
+            name="message"
+            placeholder="Cuéntanos qué te gustaría probar, idioma, restricciones alimentarias o cualquier detalle."
+            rows="5"
+          />
+
+          <button className="button light" type="submit">
+            Enviar solicitud
+          </button>
+        </form>
+
+        <div className="contact-actions contact-secondary">
+          <a className="button outline" href="https://wa.me/5210000000000">
+            WhatsApp
+          </a>
+          <a
+            className="button outline"
+            href="https://instagram.com/entrecallesmexico"
+          >
+            Instagram
+          </a>
+          <a className="button outline" href="mailto:hola@entrecalles.mx">
+            Email
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function EnglishPage() {
+  return (
+    <main>
+      <section className="page-hero">
+        <Nav />
+        <div className="page-hero-inner">
+          <p className="hero-kicker">Mexico City · Food Experiences</p>
+          <h1>Taste Mexico City between the streets.</h1>
+          <p>
+            Walking food tours, private routes and future gastronomic experiences
+            on wheels through Mexico City.
+          </p>
+        </div>
+      </section>
+
+      <section className="intro">
+        <div>
+          <p className="eyebrow">What we do</p>
+          <h2>We explore Mexico City through the places where people really eat.</h2>
+        </div>
+        <p>
+          Markets, taquerías, cantinas, mezcal, street food and neighbourhood
+          stories. Simple, local and full of flavour.
+        </p>
+      </section>
+
+      <section className="feature-grid">
+        <FeatureCard
+          title="Walking experiences"
+          text="Tacos, markets, cantinas and mezcal across Mexico City."
+          button="See experiences"
+          onClick={() => navigate('/experiencias')}
+        />
+        <FeatureCard
+          title="On wheels"
+          text="A future dining route through the city, served in motion."
+          button="Explore concept"
+          onClick={() => navigate('/sobre-ruedas')}
+          featured
+        />
+        <FeatureCard
+          title="Private routes"
+          text="Custom experiences for travellers, chefs, brands and groups."
+          button="Contact us"
+          onClick={() => navigate('/contacto')}
+        />
+      </section>
+
+      <Footer />
+    </main>
+  );
+}
+
+function Footer() {
+  return (
+    <footer>
+      <div>
+        <strong>Entre Calles</strong>
+        <p>Recorridos gastronómicos en Ciudad de México.</p>
+      </div>
+
+      <div className="footer-links">
+        <a href="https://instagram.com/entrecallesmexico">@entrecallesmexico</a>
+        <button onClick={() => navigate('/en')}>English version</button>
+      </div>
+    </footer>
+  );
+}
+
+function App() {
+  const [path, setPath] = useState(cleanPath(window.location.pathname));
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setPath(cleanPath(window.location.pathname));
+      window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('locationchange', handleLocationChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('locationchange', handleLocationChange);
+    };
+  }, []);
+
+  const tourSlug = path.startsWith('/tours/')
+    ? path.replace('/tours/', '')
+    : '';
+
+  const tour = experiences.find((item) => item.slug === tourSlug);
+
+  if (path === '/en') return <EnglishPage />;
+  if (path === '/experiencias') return <ExperiencesPage />;
+  if (path === '/sobre-ruedas') return <RollingPage />;
+  if (path === '/privados') return <PrivatePage />;
+  if (path === '/nosotros') return <AboutPage />;
+  if (path === '/contacto') return <ContactPage />;
+  if (tour) return <TourPage tour={tour} />;
+
+  return <HomePage />;
+}
+
+export default App;

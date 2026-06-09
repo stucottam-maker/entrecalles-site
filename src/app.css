@@ -117,60 +117,11 @@ h3 {
 
 /* HERO */
 
-.hero,
 .page-hero,
 .tour-hero,
 .contact-section {
   background: var(--red);
   color: white;
-}
-
-.hero {
-  min-height: 68vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.home-hero {
-  background:
-    radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 34%),
-    linear-gradient(135deg, var(--red), var(--red-deep));
-}
-
-.hero-inner {
-  flex: 1;
-  width: min(880px, calc(100% - 48px));
-  margin: 0 auto;
-  padding: 0 0 48px;
-  display: grid;
-  align-content: center;
-  gap: 18px;
-  text-align: center;
-}
-
-.hero-kicker {
-  margin: 0;
-  color: white;
-  font-size: 0.72rem;
-  font-weight: 950;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-
-.hero h1,
-.page-hero h1,
-.tour-hero h1,
-.contact-section h2 {
-  color: white;
-}
-
-.hero-inner p:not(.hero-kicker),
-.page-hero-inner p,
-.tour-hero-inner p {
-  width: min(620px, 100%);
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 0.98rem;
 }
 
 .page-hero,
@@ -192,9 +143,27 @@ h3 {
   text-align: center;
 }
 
+.hero-kicker {
+  margin: 0;
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 950;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.page-hero h1,
+.tour-hero h1,
+.contact-section h2 {
+  color: white;
+}
+
 .page-hero-inner p,
 .tour-hero-inner p {
-  margin-top: 18px;
+  width: min(620px, 100%);
+  margin: 18px auto 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.98rem;
 }
 
 /* IMAGE HERO */
@@ -207,6 +176,18 @@ h3 {
   color: white;
   display: flex;
   flex-direction: column;
+}
+
+.home-image-hero {
+  min-height: 86vh;
+}
+
+.experiences-image-hero {
+  min-height: 58vh;
+}
+
+.rolling-image-hero {
+  min-height: 82vh;
 }
 
 .image-hero-bg {
@@ -232,19 +213,45 @@ h3 {
     linear-gradient(
       to right,
       rgba(16, 16, 16, 0.78),
-      rgba(16, 16, 16, 0.36),
+      rgba(16, 16, 16, 0.38),
       rgba(16, 16, 16, 0.18)
     ),
     linear-gradient(
       to top,
-      rgba(16, 16, 16, 0.55),
-      rgba(16, 16, 16, 0.1)
+      rgba(16, 16, 16, 0.62),
+      rgba(16, 16, 16, 0.08)
     );
 }
 
-.image-hero .site-nav {
+.image-hero .site-nav,
+.image-hero-content {
   position: relative;
-  z-index: 3;
+  z-index: 2;
+}
+
+.hero-inner {
+  flex: 1;
+  width: min(880px, calc(100% - 48px));
+  margin-left: max(24px, calc((100vw - var(--max)) / 2));
+  margin-right: auto;
+  padding: 0 0 54px;
+  display: grid;
+  align-content: center;
+  gap: 18px;
+  text-align: left;
+}
+
+.hero-inner h1,
+.rolling-hero-inner h1 {
+  color: white;
+}
+
+.hero-inner p:not(.hero-kicker),
+.rolling-hero-inner p:not(.hero-kicker) {
+  max-width: 640px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.98rem;
 }
 
 .rolling-hero-inner {
@@ -252,7 +259,8 @@ h3 {
   z-index: 2;
   flex: 1;
   width: min(920px, calc(100% - 48px));
-  margin: 0 auto;
+  margin-left: max(24px, calc((100vw - var(--max)) / 2));
+  margin-right: auto;
   padding: 0 0 54px;
   display: grid;
   align-content: center;
@@ -261,14 +269,13 @@ h3 {
 }
 
 .rolling-hero-inner h1 {
-  color: white;
   font-size: clamp(3.2rem, 8vw, 6.8rem);
 }
 
-.rolling-hero-inner p:not(.hero-kicker) {
-  max-width: 640px;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.84);
+.experiences-image-hero .page-hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
 /* BUTTONS */
@@ -276,13 +283,13 @@ h3 {
 .hero-actions,
 .contact-actions {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.rolling-hero-inner .hero-actions {
-  justify-content: flex-start;
+.contact-actions {
+  justify-content: center;
 }
 
 .button {
@@ -337,7 +344,6 @@ h3 {
 .intro,
 .section,
 .about-section,
-.private-section,
 .tour-detail-section,
 .image-strip,
 .home-cta,
@@ -755,33 +761,16 @@ footer p {
     transform: translateX(-82px);
   }
 
-  .hero {
-    min-height: 68vh;
-  }
-
-  .hero-inner,
-  .page-hero-inner,
-  .tour-hero-inner,
-  .rolling-hero-inner {
-    width: calc(100% - 40px);
-  }
-
-  .hero-inner {
-    padding: 16px 0 42px;
-  }
-
-  .page-hero,
-  .tour-hero {
-    min-height: 48vh;
-  }
-
-  .page-hero-inner,
-  .tour-hero-inner {
-    padding: 22px 0 44px;
-  }
-
   .image-hero {
     min-height: 78vh;
+  }
+
+  .home-image-hero {
+    min-height: 78vh;
+  }
+
+  .experiences-image-hero {
+    min-height: 54vh;
   }
 
   .image-hero::after {
@@ -793,17 +782,42 @@ footer p {
       );
   }
 
-  .rolling-hero-inner {
-    padding: 20px 0 44px;
+  .hero-inner,
+  .rolling-hero-inner,
+  .page-hero-inner,
+  .tour-hero-inner {
+    width: calc(100% - 40px);
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
   }
 
-  .rolling-hero-inner p:not(.hero-kicker) {
-    margin: 0 auto;
+  .hero-inner {
+    padding: 16px 0 42px;
   }
 
-  .rolling-hero-inner .hero-actions {
+  .rolling-hero-inner {
+    padding: 20px 0 44px;
+  }
+
+  .hero-inner p:not(.hero-kicker),
+  .rolling-hero-inner p:not(.hero-kicker) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
     justify-content: center;
+  }
+
+  .page-hero,
+  .tour-hero {
+    min-height: 48vh;
+  }
+
+  .page-hero-inner,
+  .tour-hero-inner {
+    padding: 22px 0 44px;
   }
 
   h1 {
@@ -821,7 +835,6 @@ footer p {
   .intro,
   .section,
   .about-section,
-  .private-section,
   .tour-detail-section,
   .image-strip,
   .home-cta,

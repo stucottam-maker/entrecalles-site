@@ -107,10 +107,17 @@ function Nav() {
 function HomePage() {
   return (
     <main>
-      <section className="hero home-hero">
+      <section className="image-hero home-image-hero">
         <Nav />
 
-        <div className="hero-inner">
+        <div className="image-hero-bg">
+          <img
+            src={rollingHeroImage}
+            alt="Entre Calles gastronomic experience in Mexico City"
+          />
+        </div>
+
+        <div className="hero-inner image-hero-content">
           <p className="hero-kicker">Ciudad de México · Food Experiences</p>
           <h1>
             Saborea la CDMX
@@ -124,10 +131,10 @@ function HomePage() {
           </p>
 
           <div className="hero-actions">
-            <button className="button dark" onClick={() => navigate('/experiencias')}>
+            <button className="button light" onClick={() => navigate('/experiencias')}>
               Ver experiencias
             </button>
-            <button className="button light" onClick={() => navigate('/sobre-ruedas')}>
+            <button className="button dark" onClick={() => navigate('/sobre-ruedas')}>
               Sobre ruedas
             </button>
           </div>
@@ -221,9 +228,14 @@ function ImageStrip() {
 function ExperiencesPage() {
   return (
     <main>
-      <section className="page-hero">
+      <section className="image-hero experiences-image-hero">
         <Nav />
-        <div className="page-hero-inner">
+
+        <div className="image-hero-bg">
+          <img src={tourImages.mercado} alt="Mercado gastronómico en CDMX" />
+        </div>
+
+        <div className="page-hero-inner image-hero-content">
           <p className="hero-kicker">Experiencias</p>
           <h1>Rutas sencillas, reales y llenas de sabor.</h1>
           <p>
@@ -259,7 +271,7 @@ function ExperiencesPage() {
 function RollingPage() {
   return (
     <main>
-      <section className="image-hero rolling-hero">
+      <section className="image-hero rolling-image-hero">
         <Nav />
 
         <div className="image-hero-bg">
@@ -269,7 +281,7 @@ function RollingPage() {
           />
         </div>
 
-        <div className="rolling-hero-inner">
+        <div className="rolling-hero-inner image-hero-content">
           <p className="hero-kicker">Próximamente · CDMX</p>
           <h1>
             CDMX servida
@@ -544,15 +556,36 @@ function Contact() {
 function EnglishPage() {
   return (
     <main>
-      <section className="page-hero">
+      <section className="image-hero home-image-hero">
         <Nav />
-        <div className="page-hero-inner">
+
+        <div className="image-hero-bg">
+          <img
+            src={rollingHeroImage}
+            alt="Entre Calles gastronomic experience in Mexico City"
+          />
+        </div>
+
+        <div className="hero-inner image-hero-content">
           <p className="hero-kicker">Mexico City · Food Experiences</p>
-          <h1>Taste Mexico City between the streets.</h1>
+          <h1>
+            Taste Mexico City
+            <br />
+            between the streets.
+          </h1>
           <p>
-            Walking food tours, private routes and future gastronomic experiences
-            on wheels through Mexico City.
+            Walking food tours, private routes and future gastronomic
+            experiences on wheels through Mexico City.
           </p>
+
+          <div className="hero-actions">
+            <button className="button light" onClick={() => navigate('/experiencias')}>
+              See experiences
+            </button>
+            <button className="button dark" onClick={() => navigate('/contacto')}>
+              Contact
+            </button>
+          </div>
         </div>
       </section>
 

@@ -3,11 +3,19 @@ import { useEffect, useState } from 'react';
 const bannerImage =
   'https://www.dropbox.com/scl/fi/lzqf6sdwjdbkiqxrxr4uj/entre-calles-banner.png?rlkey=fqd61nsibcgtmtrj788uvma6r&st=l9zz88gn&raw=1';
 
-const homeHeroImage =
-  'https://www.dropbox.com/scl/fi/7ygw4ntpo4c3sp9qjz8kv/a_wide_cinematic_street_scene_at_golden_hour_suns.jpg?rlkey=uidut7ey4rj6arjzmin4ucr7s&st=b48xteph&raw=1';
+const heroImages = {
+  inicio:
+    'https://www.dropbox.com/scl/fi/7ygw4ntpo4c3sp9qjz8kv/a_wide_cinematic_street_scene_at_golden_hour_suns.jpg?rlkey=uidut7ey4rj6arjzmin4ucr7s&st=b48xteph&raw=1',
 
-const rollingHeroImage =
-  'https://www.dropbox.com/scl/fi/7ygw4ntpo4c3sp9qjz8kv/a_wide_cinematic_street_scene_at_golden_hour_suns.jpg?rlkey=uidut7ey4rj6arjzmin4ucr7s&st=b48xteph&raw=1';
+  experiencias:
+    'https://www.dropbox.com/scl/fi/a589wjp97x3ju12xlvfhb/entrecalles_experiencias_hero.jpg?rlkey=hjv0j5y2eufm4499f011p9azi&st=rlz00ab8&raw=1',
+
+  nosotros:
+    'https://www.dropbox.com/scl/fi/s9qxqvgmnui63eijh2iu7/entrecalles_nosotros_hero.jpg?rlkey=24dsbd9jd3i263k3y2xynikwk&st=sdvdqdnl&raw=1',
+
+  contacto:
+    'https://www.dropbox.com/scl/fi/1aekgnwp8wczyzguorsbi/entrecalles_contacto_hero.jpg?rlkey=uckto03ot193n7hkbcid65qzp&st=x8bquwha&raw=1',
+};
 
 const tourImages = {
   mole:
@@ -107,42 +115,60 @@ function Nav() {
   );
 }
 
+function ImageHero({
+  image,
+  alt,
+  kicker,
+  title,
+  copy,
+  children,
+  centered = false,
+  className = '',
+}) {
+  return (
+    <section className={`image-hero ${className}`}>
+      <Nav />
+
+      <div className="image-hero-bg">
+        <img src={image} alt={alt} />
+      </div>
+
+      <div className={centered ? 'hero-content centered' : 'hero-content'}>
+        <p className="hero-kicker">{kicker}</p>
+        <h1 className="hero-title">{title}</h1>
+        {copy && <p className="hero-copy">{copy}</p>}
+        {children}
+      </div>
+    </section>
+  );
+}
+
 function HomePage() {
   return (
     <main>
-      <section className="image-hero home-image-hero">
-        <Nav />
-
-        <div className="image-hero-bg">
-          <img
-            src={homeHeroImage}
-            alt="Entre Calles gastronomic experience in Mexico City"
-          />
-        </div>
-
-        <div className="hero-content">
-          <p className="hero-kicker">Ciudad de México · Food Experiences</p>
-          <h1 className="hero-title">
+      <ImageHero
+        image={heroImages.inicio}
+        alt="Entre Calles gastronomic experience in Mexico City"
+        kicker="Ciudad de México · Food Experiences"
+        title={
+          <>
             Saborea la CDMX
             <br />
             entre calles.
-          </h1>
-          <p className="hero-copy">
-            Recorridos gastronómicos, experiencias privadas y rutas itinerantes
-            por la Ciudad de México. Mercados, taquerías, cantinas, mezcal,
-            barrios y una ciudad que se entiende mejor comiendo.
-          </p>
-
-          <div className="hero-actions">
-            <button className="button light" onClick={() => navigate('/experiencias')}>
-              Ver experiencias
-            </button>
-            <button className="button dark" onClick={() => navigate('/sobre-ruedas')}>
-              Sobre ruedas
-            </button>
-          </div>
+          </>
+        }
+        copy="Recorridos gastronómicos, experiencias privadas y rutas itinerantes por la Ciudad de México. Mercados, taquerías, cantinas, mezcal, barrios y una ciudad que se entiende mejor comiendo."
+        className="home-image-hero"
+      >
+        <div className="hero-actions">
+          <button className="button light" onClick={() => navigate('/experiencias')}>
+            Ver experiencias
+          </button>
+          <button className="button dark" onClick={() => navigate('/sobre-ruedas')}>
+            Sobre ruedas
+          </button>
         </div>
-      </section>
+      </ImageHero>
 
       <section className="slogan-strip">
         <p>Llevamos tu paladar al límite.</p>
@@ -231,28 +257,22 @@ function ImageStrip() {
 function ExperiencesPage() {
   return (
     <main>
-      <section className="image-hero experiences-image-hero">
-        <Nav />
-
-        <div className="image-hero-bg">
-          <img src={tourImages.mercado} alt="Mercado gastronómico en CDMX" />
-        </div>
-
-        <div className="hero-content centered">
-          <p className="hero-kicker">Experiencias</p>
-          <h1 className="hero-title">
+      <ImageHero
+        image={heroImages.experiencias}
+        alt="Experiencias gastronómicas en CDMX"
+        kicker="Experiencias"
+        title={
+          <>
             Rutas sencillas,
             <br />
             reales y llenas
             <br />
             de sabor.
-          </h1>
-          <p className="hero-copy">
-            Tacos, mercados, cantinas y mezcal. Elige una ruta o pide una
-            experiencia hecha a tu medida.
-          </p>
-        </div>
-      </section>
+          </>
+        }
+        copy="Tacos, mercados, cantinas y mezcal. Elige una ruta o pide una experiencia hecha a tu medida."
+        className="experiences-image-hero"
+      />
 
       <section className="section">
         <div className="tour-grid">
@@ -280,39 +300,29 @@ function ExperiencesPage() {
 function RollingPage() {
   return (
     <main>
-      <section className="image-hero rolling-image-hero">
-        <Nav />
-
-        <div className="image-hero-bg">
-          <img
-            src={rollingHeroImage}
-            alt="Entre Calles gastronomic bus experience in Mexico City"
-          />
-        </div>
-
-        <div className="hero-content">
-          <p className="hero-kicker">Próximamente · CDMX</p>
-          <h1 className="hero-title">
+      <ImageHero
+        image={heroImages.inicio}
+        alt="Entre Calles gastronomic bus experience in Mexico City"
+        kicker="Próximamente · CDMX"
+        title={
+          <>
             CDMX servida
             <br />
             sobre ruedas.
-          </h1>
-          <p className="hero-copy">
-            Una experiencia gastronómica itinerante por la Ciudad de México:
-            sabores de barrio, cocina mexicana, vistas urbanas y una mesa en
-            movimiento.
-          </p>
-
-          <div className="hero-actions">
-            <button className="button light" onClick={() => navigate('/contacto')}>
-              Quiero saber más
-            </button>
-            <button className="button dark" onClick={() => navigate('/experiencias')}>
-              Ver experiencias
-            </button>
-          </div>
+          </>
+        }
+        copy="Una experiencia gastronómica itinerante por la Ciudad de México: sabores de barrio, cocina mexicana, vistas urbanas y una mesa en movimiento."
+        className="rolling-image-hero"
+      >
+        <div className="hero-actions">
+          <button className="button light" onClick={() => navigate('/contacto')}>
+            Quiero saber más
+          </button>
+          <button className="button dark" onClick={() => navigate('/experiencias')}>
+            Ver experiencias
+          </button>
         </div>
-      </section>
+      </ImageHero>
 
       <section className="intro">
         <div>
@@ -409,21 +419,20 @@ function PrivatePage() {
 function AboutPage() {
   return (
     <main>
-      <section className="simple-hero">
-        <Nav />
-        <div className="simple-hero-inner">
-          <p className="hero-kicker">Nosotros</p>
-          <h1 className="hero-title">
+      <ImageHero
+        image={heroImages.nosotros}
+        alt="Entre Calles food story in CDMX"
+        kicker="Nosotros"
+        title={
+          <>
             Nacimos
             <br />
             entre calles.
-          </h1>
-          <p className="hero-copy">
-            Entre Calles nace del amor por la Ciudad de México y por su forma
-            más honesta de contar historias: la comida.
-          </p>
-        </div>
-      </section>
+          </>
+        }
+        copy="Entre Calles nace del amor por la Ciudad de México y por su forma más honesta de contar historias: la comida."
+        className="about-image-hero"
+      />
 
       <section className="about-section">
         <p className="eyebrow">Nuestra historia</p>
@@ -493,122 +502,120 @@ function TourPage({ tour }) {
 function ContactPage() {
   return (
     <main>
-      <Contact />
+      <section className="image-hero contact-image-hero">
+        <Nav />
+
+        <div className="image-hero-bg">
+          <img src={heroImages.contacto} alt="Reservas Entre Calles CDMX" />
+        </div>
+
+        <div className="contact-hero-grid">
+          <div className="contact-hero-copy">
+            <p className="hero-kicker">Reservas</p>
+            <h1 className="hero-title">
+              ¿Listo para
+              <br />
+              probar la CDMX?
+            </h1>
+            <p className="hero-copy">
+              Escríbenos con tus fechas, número de personas, idioma, tipo de
+              experiencia y restricciones alimentarias.
+            </p>
+          </div>
+
+          <ContactForm />
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
 }
 
-function Contact() {
+function ContactForm() {
   return (
-    <section className="contact-section">
-      <Nav />
-
-      <div className="contact-inner">
-        <img src={bannerImage} alt="Entre Calles" />
-
-        <p className="eyebrow light">Reservas</p>
-        <h2 className="contact-title">
-          ¿Listo para
-          <br />
-          probar la CDMX?
-        </h2>
-        <p>
-          Escríbenos con tus fechas, número de personas, idioma, tipo de
-          experiencia y restricciones alimentarias.
-        </p>
-
-        <form
-          className="contact-form"
-          action="https://formspree.io/f/YOUR_FORM_ID"
-          method="POST"
-        >
-          <div className="form-row">
-            <input type="text" name="name" placeholder="Nombre" required />
-            <input type="email" name="email" placeholder="Email" required />
-          </div>
-
-          <div className="form-row">
-            <input type="text" name="date" placeholder="Fecha aproximada" />
-            <input type="text" name="guests" placeholder="Número de personas" />
-          </div>
-
-          <select name="experience" required defaultValue="">
-            <option value="" disabled>
-              Tipo de experiencia
-            </option>
-            <option value="Ruta de Tacos">Ruta de Tacos</option>
-            <option value="Mercado y Desayuno">Mercado y Desayuno</option>
-            <option value="Cantinas y Mezcal">Cantinas y Mezcal</option>
-            <option value="Sobre ruedas">Sobre ruedas</option>
-            <option value="Ruta privada">Ruta privada</option>
-          </select>
-
-          <textarea
-            name="message"
-            placeholder="Cuéntanos qué te gustaría probar, idioma, restricciones alimentarias o cualquier detalle."
-            rows="5"
-          />
-
-          <button className="button light" type="submit">
-            Enviar solicitud
-          </button>
-        </form>
-
-        <div className="contact-actions contact-secondary">
-          <a className="button outline" href="https://wa.me/5210000000000">
-            WhatsApp
-          </a>
-          <a
-            className="button outline"
-            href="https://instagram.com/entrecallesmexico"
-          >
-            Instagram
-          </a>
-          <a className="button outline" href="mailto:hola@entrecalles.mx">
-            Email
-          </a>
+    <div className="contact-form-wrap">
+      <form
+        className="contact-form"
+        action="https://formspree.io/f/YOUR_FORM_ID"
+        method="POST"
+      >
+        <div className="form-row">
+          <input type="text" name="name" placeholder="Nombre" required />
+          <input type="email" name="email" placeholder="Email" required />
         </div>
+
+        <div className="form-row">
+          <input type="text" name="date" placeholder="Fecha aproximada" />
+          <input type="text" name="guests" placeholder="Número de personas" />
+        </div>
+
+        <select name="experience" required defaultValue="">
+          <option value="" disabled>
+            Tipo de experiencia
+          </option>
+          <option value="Ruta de Tacos">Ruta de Tacos</option>
+          <option value="Mercado y Desayuno">Mercado y Desayuno</option>
+          <option value="Cantinas y Mezcal">Cantinas y Mezcal</option>
+          <option value="Sobre ruedas">Sobre ruedas</option>
+          <option value="Ruta privada">Ruta privada</option>
+        </select>
+
+        <textarea
+          name="message"
+          placeholder="Cuéntanos qué te gustaría probar, idioma, restricciones alimentarias o cualquier detalle."
+          rows="5"
+        />
+
+        <button className="button light" type="submit">
+          Enviar solicitud
+        </button>
+      </form>
+
+      <div className="contact-actions contact-secondary">
+        <a className="button outline" href="https://wa.me/5210000000000">
+          WhatsApp
+        </a>
+        <a
+          className="button outline"
+          href="https://instagram.com/entrecallesmexico"
+        >
+          Instagram
+        </a>
+        <a className="button outline" href="mailto:hola@entrecalles.mx">
+          Email
+        </a>
       </div>
-    </section>
+    </div>
   );
 }
 
 function EnglishPage() {
   return (
     <main>
-      <section className="image-hero home-image-hero">
-        <Nav />
-
-        <div className="image-hero-bg">
-          <img
-            src={homeHeroImage}
-            alt="Entre Calles gastronomic experience in Mexico City"
-          />
-        </div>
-
-        <div className="hero-content">
-          <p className="hero-kicker">Mexico City · Food Experiences</p>
-          <h1 className="hero-title">
+      <ImageHero
+        image={heroImages.inicio}
+        alt="Entre Calles gastronomic experience in Mexico City"
+        kicker="Mexico City · Food Experiences"
+        title={
+          <>
             Taste Mexico City
             <br />
             between streets.
-          </h1>
-          <p className="hero-copy">
-            Walking food tours, private routes and future gastronomic experiences
-            on wheels through Mexico City.
-          </p>
-
-          <div className="hero-actions">
-            <button className="button light" onClick={() => navigate('/experiencias')}>
-              See experiences
-            </button>
-            <button className="button dark" onClick={() => navigate('/contacto')}>
-              Contact
-            </button>
-          </div>
+          </>
+        }
+        copy="Walking food tours, private routes and future gastronomic experiences on wheels through Mexico City."
+        className="home-image-hero"
+      >
+        <div className="hero-actions">
+          <button className="button light" onClick={() => navigate('/experiencias')}>
+            See experiences
+          </button>
+          <button className="button dark" onClick={() => navigate('/contacto')}>
+            Contact
+          </button>
         </div>
-      </section>
+      </ImageHero>
 
       <section className="intro">
         <div>

@@ -70,7 +70,7 @@ h3 {
   align-items: center;
   justify-content: space-between;
   position: relative;
-  z-index: 10;
+  z-index: 20;
 }
 
 .nav-logo {
@@ -100,7 +100,8 @@ h3 {
 }
 
 .site-nav nav button {
-  opacity: 0.88;
+  opacity: 0.9;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
 }
 
 .site-nav nav button:hover {
@@ -113,23 +114,10 @@ h3 {
   border-radius: 999px;
 }
 
-/* PHOTO NAV CLICK ZONES */
+/* Hide old invisible photo-nav experiment if still present in JSX */
 
 .photo-nav {
-  position: absolute;
-  top: 26px;
-  right: 48px;
-  z-index: 30;
-  display: grid;
-  grid-template-columns: 70px 125px 135px 92px 100px 100px 46px;
-  gap: 18px;
-  align-items: center;
-}
-
-.photo-nav button {
-  height: 34px;
-  opacity: 0;
-  cursor: pointer;
+  display: none;
 }
 
 /* HERO */
@@ -189,15 +177,17 @@ h3 {
   z-index: 1;
   background:
     linear-gradient(
-      to right,
-      rgba(16, 16, 16, 0.66),
-      rgba(16, 16, 16, 0.32),
-      rgba(16, 16, 16, 0.08)
+      to bottom,
+      rgba(16, 16, 16, 0.9) 0%,
+      rgba(16, 16, 16, 0.72) 18%,
+      rgba(16, 16, 16, 0.4) 52%,
+      rgba(16, 16, 16, 0.76) 100%
     ),
     linear-gradient(
-      to top,
-      rgba(16, 16, 16, 0.56),
-      rgba(16, 16, 16, 0.02)
+      to right,
+      rgba(16, 16, 16, 0.86),
+      rgba(16, 16, 16, 0.45),
+      rgba(16, 16, 16, 0.14)
     );
 }
 
@@ -213,7 +203,7 @@ h3 {
 .hero-content,
 .simple-hero-inner {
   flex: 1;
-  width: min(860px, calc(100% - 48px));
+  width: min(820px, calc(100% - 48px));
   margin-left: max(24px, calc((100vw - var(--max)) / 2));
   margin-right: auto;
   padding: 0 0 54px;
@@ -242,19 +232,19 @@ h3 {
 }
 
 .hero-title {
-  max-width: 820px;
+  max-width: 760px;
   color: white;
-  font-size: clamp(3.4rem, 8vw, 7.2rem);
+  font-size: clamp(2.8rem, 6.6vw, 5.8rem);
   font-weight: 950;
-  line-height: 0.84;
-  letter-spacing: -0.07em;
+  line-height: 0.88;
+  letter-spacing: -0.06em;
   text-transform: uppercase;
   text-wrap: balance;
   text-shadow: 0 10px 28px rgba(0, 0, 0, 0.54);
 }
 
 .hero-copy {
-  max-width: 620px;
+  max-width: 600px;
   color: rgba(255, 255, 255, 0.86);
   font-size: 1rem;
 }
@@ -281,7 +271,7 @@ h3 {
   padding: 24px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 24px;
-  background: rgba(16, 16, 16, 0.56);
+  background: rgba(16, 16, 16, 0.62);
   backdrop-filter: blur(10px);
 }
 
@@ -736,22 +726,6 @@ footer p {
     display: none;
   }
 
-  .photo-nav {
-    top: 18px;
-    right: 20px;
-    display: flex;
-  }
-
-  .photo-nav button:not(:last-child) {
-    display: none;
-  }
-
-  .photo-nav button:last-child {
-    width: 48px;
-    height: 40px;
-    opacity: 0;
-  }
-
   .nav-logo {
     width: 210px;
     height: 76px;
@@ -774,9 +748,11 @@ footer p {
   .image-hero::after {
     background:
       linear-gradient(
-        to top,
-        rgba(16, 16, 16, 0.72),
-        rgba(16, 16, 16, 0.18)
+        to bottom,
+        rgba(16, 16, 16, 0.88) 0%,
+        rgba(16, 16, 16, 0.55) 28%,
+        rgba(16, 16, 16, 0.38) 58%,
+        rgba(16, 16, 16, 0.8) 100%
       );
   }
 
@@ -791,7 +767,8 @@ footer p {
   }
 
   .hero-title {
-    font-size: clamp(2.8rem, 13vw, 4.7rem);
+    font-size: clamp(2.55rem, 11vw, 4.1rem);
+    line-height: 0.9;
   }
 
   .hero-copy {
